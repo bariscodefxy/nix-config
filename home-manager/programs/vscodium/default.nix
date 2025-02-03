@@ -14,6 +14,7 @@
       arrterian.nix-env-selector
       ms-python.python
       ms-vscode.cpptools
+      leonardssh.vscord
     ];
 
     userSettings = {
