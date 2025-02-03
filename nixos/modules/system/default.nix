@@ -2,6 +2,12 @@
 {
   console.keyMap = "trq";
 
+  services.xserver.xkb = {
+    layout = "tr,us";
+    variant = "";
+    options = "grp:win_space_toggle";
+  };
+
   time.timeZone = "Europe/Istanbul";
 
   i18n.defaultLocale = "tr_TR.UTF-8";

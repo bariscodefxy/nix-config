@@ -6,7 +6,8 @@
     ./user
     ./boot
     ./package
-    # ./hardware
+    ./hardware
     ./game
+    # ./sound # NO REQUIRED
   ];
 }

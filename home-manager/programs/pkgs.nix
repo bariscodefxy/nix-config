@@ -1,15 +1,16 @@
 { inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    inputs.zen-browser.packages."${pkgs.system}".default
-
     neofetch
     neovim
+    btop
+    vim
     wget
     thunderbird
     vesktop
     heroic
     kitty
     swww
+    firefox
   ];
 }

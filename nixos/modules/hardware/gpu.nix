@@ -1,13 +1,20 @@
-{ pkgs, ... }:
 {
-  boot.kernelModules = [ "nouveau" ];
-  boot.blacklistedKernelModules = [ "nvidia" "nvidia_uvm" "nvidia_drm" "nvidia_modeset" ];
-
-  hardware.opengl = {
+  config,
+  ...
+}:
+{
+  hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
-      mesa
-      mesa.drivers
-    ];
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }
