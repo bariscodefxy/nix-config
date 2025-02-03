@@ -6,6 +6,7 @@
     ./user
     ./boot
     ./package
-    ./hardware
+    # ./hardware
+    ./game
   ];
 }

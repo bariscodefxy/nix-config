@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./gpu.nix
+    ./hyprland
   ];
 }

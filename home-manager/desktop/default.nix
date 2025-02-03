@@ -1,9 +1,8 @@
 { ... }:
 {
   imports = [
-    ./git
-    ./vscodium
-    ./spotify
+    ./hyprland
+    ./ags
     ./pkgs.nix
   ];
 }
