@@ -8,6 +8,7 @@
     ./package
     ./hardware
     ./game
+    ./garbage
     # ./sound # NO REQUIRED
   ];
 }
