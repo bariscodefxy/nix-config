@@ -5,6 +5,7 @@
     ./git
     ./vscodium
     ./spotify
+    ./zsh
     ./pkgs.nix
   ];
 }
