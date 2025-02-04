@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   users.users = {
     bariscodefx = {
@@ -7,6 +7,7 @@
         "wheel"
         "docker"
       ];
+      shell = pkgs.zsh;
     };
   };
 }
