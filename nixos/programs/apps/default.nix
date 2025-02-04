@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./steam
+    ./zsh
     ./pkgs.nix
   ];
 }

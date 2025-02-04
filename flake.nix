@@ -20,10 +20,11 @@
       self,
       nixpkgs,
       home-manager,
+      plasma-manager,
       ...
     }@inputs:
     let
-      inherit (self) outputs prisma-manager;
+      inherit (self) outputs;
       systems = [
         "aarch64-linux"
         "i686-linux"
@@ -52,7 +53,7 @@
       homeConfigurations = {
         "bariscodefx@victus" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs prisma-manager; };
+          extraSpecialArgs = { inherit inputs outputs plasma-manager; };
           modules = [
             ./home-manager/home.nix
           ];
