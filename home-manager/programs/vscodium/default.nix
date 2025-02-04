@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     nixd
     nixfmt-rfc-style
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.vscode = {
@@ -21,6 +22,7 @@
       "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 18;
+      "editor.fontLigatures" = true;
 
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
