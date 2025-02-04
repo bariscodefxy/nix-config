@@ -3,11 +3,56 @@
   programs.floorp = {
     enable = true;
 
+    policies = {
+      DisableTelemetry = true;
+      DisablePocket = true;
+      DisableFormHistory = true;
+      HardwareAcceleration = true;
+
+      ExtensionSettings = {
+        "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+        # uBlock Origin:
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        # Bitwarden
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+    };
+
     profiles = {
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        bitwarden
-      ];
+      "user" = {
+        id = 0;
+        isDefault = true;
+        search = {
+          force = true;
+          default = "SearXNG";
+          engines = {
+            "SearXNG" = {
+              urls = [
+                {
+                  template = "https://search.ononoki.org/search?";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+          };
+        };
+        settings = {
+          "browser.startup.homepage" = "https://search.ononoki.org/";
+          "browser.tabs.warnOnClose" = false;
+          "general.useragent.locale" = "tr-TR";
+        };
+      };
     };
   };
 }

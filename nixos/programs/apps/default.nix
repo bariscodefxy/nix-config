@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./apps
-    ./desktop
+    ./steam
+    ./pkgs.nix
   ];
 }

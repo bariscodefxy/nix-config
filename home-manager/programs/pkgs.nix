@@ -8,9 +8,9 @@
     wget
     thunderbird
     vesktop
-    heroic
     kitty
     swww
-    firefox
+    prismlauncher
+    mangohud
   ];
 }
