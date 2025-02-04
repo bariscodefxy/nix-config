@@ -22,6 +22,7 @@
         ms-python.python
         formulahendry.auto-rename-tag
         formulahendry.auto-close-tag
+        ritwickdey.liveserver
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -35,6 +36,12 @@
           name = "sublime-keybindings";
           version = "4.1.10";
           sha256 = "sha256-XlogenuBmP+tE18VLH4lUSpOq/7d022n8HgXnKjY3n0=";
+        }
+        {
+          publisher = "ms-vscode";
+          name = "vscode-typescript-next";
+          version = "5.8.20250203";
+          sha256 = "sha256-Q26s3GmCSg9AFbSOO83vEpXtYP2PQMFzpkeoJe5dDWE=";
         }
       ];
 
