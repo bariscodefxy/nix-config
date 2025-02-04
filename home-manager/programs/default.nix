@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
+    ./floorp
     ./git
     ./vscodium
     ./spotify
-    ./floorp
     ./pkgs.nix
   ];
 }

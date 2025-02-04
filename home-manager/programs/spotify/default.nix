@@ -1,18 +1,20 @@
 { inputs, pkgs, ... }:
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in
+# let
+#   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+# in
 {
-  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  programs.spotify-player.enable = true;
 
-  programs.spicetify = {
-    enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblockify
-      hidePodcasts
-      shuffle
-    ];
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-  };
+  # imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+
+  # programs.spicetify = {
+  #   enable = true;
+  #   enabledExtensions = with spicePkgs.extensions; [
+  #     adblockify
+  #     hidePodcasts
+  #     shuffle
+  #   ];
+  #   theme = spicePkgs.themes.ziro;
+  #   colorScheme = "mocha";
+  # };
 }
