@@ -30,6 +30,10 @@
 
       "editor.mouseWheelZoom" = true;
 
+      "explorer.confirmDragAndDrop" = false;
+      "editor.confirmDelete" = false;
+      "git.confirmSync" = false;
+
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
     };
