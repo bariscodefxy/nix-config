@@ -1,4 +1,4 @@
-{ pkgs, plasma-manager, ... }:
+{ plasma-manager, ... }:
 
 {
   imports = [ plasma-manager.homeManagerModules.plasma-manager ];
@@ -6,9 +6,18 @@
   programs.plasma = {
     enable = true;
 
-    workspace = {
-      lookAndFeel = "com.github.vinceliuice.WhiteSur-dark";
-      wallpaper = "${pkgs.whitesur-kde}/share/wallpapers/WhiteSur-dark/contents/images/3840x2160.jpg";
+    input = {
+      touchpads = [
+        {
+          disableWhileTyping = false;
+          enable = true;
+          naturalScroll = true;
+          tapToClick = true;
+          name = "ELAN07C8:00 04F3:3298 Touchpad";
+          productId = "3298";
+          vendorId = "04F3";
+        }
+      ];
     };
 
     kscreenlocker = {
