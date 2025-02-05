@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./gpu.nix
+    # ./gpu.nix
     ./bluetooth.nix
   ];
 }
