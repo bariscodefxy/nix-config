@@ -3,6 +3,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    autocd = true;
 
     shellAliases = {
       ll = "ls -l";
@@ -10,6 +11,9 @@
       rehome = "home-manager switch --flake .#bariscodefx@victus";
     };
 
-    autocd = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+    };
   };
 }

@@ -35,7 +35,7 @@
             "SearXNG" = {
               urls = [
                 {
-                  template = "https://search.ononoki.org/search?";
+                  template = "http://localhost:3080/search?";
                   params = [
                     {
                       name = "q";
@@ -48,7 +48,7 @@
           };
         };
         settings = {
-          "browser.startup.homepage" = "https://search.ononoki.org/";
+          "browser.startup.homepage" = "http://localhost:3080/";
           "browser.tabs.warnOnClose" = false;
           "general.useragent.locale" = "tr-TR";
         };

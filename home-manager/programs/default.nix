@@ -3,8 +3,9 @@
   imports = [
     ./floorp
     ./git
-    ./vscodium
+    ./konsole
     ./spotify
+    ./vscodium
     ./zsh
     ./pkgs.nix
   ];

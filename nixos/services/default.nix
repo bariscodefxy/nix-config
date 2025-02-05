@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./zapret
+    ./searxng
     ./dnscrypt
+    ./zapret
   ];
 }
