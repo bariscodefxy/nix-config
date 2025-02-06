@@ -10,5 +10,6 @@
     prismlauncher
     vlc
     unrar
+    obs-studio
   ];
 }
