@@ -9,6 +9,7 @@
       ll = "ls -l";
       resystem = "sudo nixos-rebuild switch --flake .#victus";
       rehome = "home-manager switch --flake .#bariscodefx@victus";
+      neofetch = "fastfetch";
     };
 
     oh-my-zsh = {

@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./fastfetch
     ./floorp
     ./git
     ./konsole
