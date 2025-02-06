@@ -31,6 +31,7 @@
         search = {
           force = true;
           default = "SearXNG";
+          privateDefault = "SearXNG";
           engines = {
             "SearXNG" = {
               urls = [
