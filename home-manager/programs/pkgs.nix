@@ -11,5 +11,10 @@
     vlc
     unrar
     obs-studio
+    wofi
+    swww
+    waybar
+    nemo
+    pywalfox-native
   ];
 }
