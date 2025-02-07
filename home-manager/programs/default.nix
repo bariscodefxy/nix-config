@@ -4,7 +4,8 @@
     ./fastfetch
     ./floorp
     ./git
-    ./konsole
+    ./kitty
+    # ./konsole
     ./spotify
     ./vscodium
     ./zsh

@@ -43,16 +43,25 @@
           version = "5.8.20250203";
           sha256 = "sha256-Q26s3GmCSg9AFbSOO83vEpXtYP2PQMFzpkeoJe5dDWE=";
         }
+        {
+          publisher = "dlasagno";
+          name = "wal-theme";
+          version = "1.1.2";
+          sha256 = "sha256-vO9FjzA3+5VTgnBY12eawPCfDzKap07Tgf5jqz/IgN0=";
+        }
       ];
 
     userSettings = {
       "update.mode" = "none";
       "extensions.autoUpdate" = false;
+      "window.titleBarStyle" = "custom";
 
+      "workbench.colorTheme" = "Wal";
       "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
       "editor.fontSize" = 18;
       "editor.fontLigatures" = true;
+      "walTheme.autoUpdate" = true;
 
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;

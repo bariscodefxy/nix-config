@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./pkgs.nix
-    ./plasma.nix
+    ./gtk.nix
+    # ./plasma.nix
+    ./wpgtk.nix
   ];
 }
