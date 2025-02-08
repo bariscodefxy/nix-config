@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run f7task",
+            "type": "shell",
+            "command": "home-manager switch --flake .#bariscodefx@victus",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run f8task",
+            "type": "shell",
+            "command": "sudo nixos-rebuild switch --flake .#victus",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            }
+        }
+    ]
+}
