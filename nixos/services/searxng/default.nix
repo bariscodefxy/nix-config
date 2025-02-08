@@ -1,7 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.searx = {
     enable = true;
+    package = pkgs.stable.searxng;
     redisCreateLocally = true;
     settings.server = {
       bind_address = "127.0.0.1";

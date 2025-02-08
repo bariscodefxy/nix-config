@@ -24,15 +24,15 @@
     };
 
     cursorTheme = {
-      name = "GoogleDot-White";
-      package = pkgs.google-cursor;
-      size = 24;
+      name = "Vimix-cursors";
+      package = pkgs.vimix-cursors;
+      size = 28;
     };
   };
 
   home.pointerCursor = {
-    name = "GoogleDot-White";
-    package = pkgs.google-cursor;
-    size = 24;
+    name = "Vimix-cursors";
+    package = pkgs.vimix-cursors;
+    size = 28;
   };
 }

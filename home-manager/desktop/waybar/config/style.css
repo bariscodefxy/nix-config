@@ -1,0 +1,129 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Inter Nerd Font";
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @background;
+    border: 3px solid @color3;
+    color: @foreground;
+    border-radius: 16px;
+}
+
+tooltip {
+    background: @background;
+    border: 1px solid @color3;
+}
+
+tooltip label {
+    color: white;
+}
+
+#window {
+    background: @color2;
+    color: @foreground;
+    border-radius: 8px;
+    padding: 0 5px;
+    margin: 5px 0;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: @foreground;
+}
+
+#workspaces button.active {
+    background: @color3;
+}
+
+#tray {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#tray>.passive {
+    border-bottom: none;
+}
+
+#tray>.active {
+    border-bottom: 3px solid @color4;
+}
+
+#tray>.needs-attention {
+    border-bottom: 3px solid @color12;
+}
+
+#tray>widget {
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#tray>widget:hover {
+    background: @cursor2;
+}
+
+#mode,
+#clock,
+#battery,
+#pulseaudio,
+#cpu,
+#memory {
+    padding: 10px;
+}
+
+#mode {
+    background: @color1;
+    border-bottom: 3px solid @foreground;
+}
+
+#clock {
+    background-color: @color1;
+    border-radius: 0 16px 16px 0;
+}
+
+#battery {
+    background-color: #26A65B;
+    color: @foreground;
+}
+
+#battery.charging {
+    color: @foreground;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: @foreground;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-os_button {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 24px;
+    padding-left: 12px;
+    padding-right: 20px;
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 16px;
+}
+
+#custom-os_button:hover {
+    background: @color2;
+    color: @foreground;
+}

@@ -76,5 +76,18 @@
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
     };
+
+    keybindings = [
+      {
+        key = "F7";
+        command = "workbench.action.tasks.runTask";
+        args = "Run f7task";
+      }
+      {
+        key = "F8";
+        command = "workbench.action.tasks.runTask";
+        args = "Run f8task";
+      }
+    ];
   };
 }
