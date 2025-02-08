@@ -6,7 +6,6 @@
     vim
     wget
     thunderbird
-    vesktop
     prismlauncher
     vlc
     unrar
@@ -16,5 +15,7 @@
     waybar
     nemo
     pywalfox-native
+    blueman
+    hyprshot
   ];
 }

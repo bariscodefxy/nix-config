@@ -15,7 +15,7 @@
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
       logo = {
         source = "$HOME/.config/fastfetch/fastfetch.png";
-        width = 35;
+        width = 37;
       };
       display = {
         percent = {

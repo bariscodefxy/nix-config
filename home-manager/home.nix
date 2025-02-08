@@ -6,6 +6,7 @@
   imports = [
     ./desktop
     ./programs
+    ./services
     ./theme
   ];
 

@@ -4,5 +4,6 @@
     brightnessctl
     playerctl
     libnotify
+    pwvucontrol
   ];
 }

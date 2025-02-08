@@ -13,18 +13,18 @@
       exec-once = [
         "waybar"
         "swww init"
-        "hyprctl setcursor GoogleDot-White 24"
+        "hyprctl setcursor Vimix-cursors 28"
       ];
 
       env = [
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
+        "XCURSOR_SIZE,28"
+        "HYPRCURSOR_SIZE,28"
       ];
 
       general = {
         gaps_in = 5;
-        gaps_out = 20;
-        border_size = 2;
+        gaps_out = 16;
+        border_size = 3;
         "col.active_border" = "$color10 $color9 45deg";
         "col.inactive_border" = "0x00000000";
         resize_on_border = false;
@@ -33,7 +33,7 @@
       };
 
       decoration = {
-        rounding = 15;
+        rounding = 16;
         rounding_power = 3;
 
         active_opacity = 0.95;
@@ -104,6 +104,7 @@
         follow_mouse = 1;
         sensitivity = 0;
         touchpad = {
+          clickfinger_behavior = true;
           natural_scroll = true;
         };
       };
@@ -125,6 +126,8 @@
         "$mainMod SHIFT, f, fullscreen, 1"
 
         "$mainMod SHIFT, r, exec, pkill waybar & hyprctl dispatch exec waybar"
+
+        ", PRINT, exec, hyprshot -m output"
 
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
@@ -168,7 +171,7 @@
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"

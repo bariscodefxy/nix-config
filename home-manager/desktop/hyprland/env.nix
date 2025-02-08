@@ -7,6 +7,7 @@
     _JAVA_AWT_WM_NONEREPARENTING = 1;
     DISABLE_QT5_COMPAT = 0;
     GDK_BACKEND = "wayland";
+    NVD_BACKEND = "direct";
     ANKI_WAYLAND = 1;
     DIRENV_LOG_FORMAT = "";
     WLR_DRM_NO_ATOMIC = 1;
@@ -19,10 +20,13 @@
     WLR_BACKEND = "vulkan";
     WLR_RENDERER = "vulkan";
     WLR_NO_HARDWARE_CURSORS = 0;
+    WLR_DRM_DEVICES = "/dev/dri/card0";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 }
