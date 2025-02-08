@@ -5,7 +5,6 @@
     ./floorp
     ./git
     ./kitty
-    # ./konsole
     ./spotify
     ./vscodium
     ./zsh
