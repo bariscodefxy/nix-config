@@ -1,14 +1,6 @@
-{ ... }:
+{ lib, ... }:
 {
-  imports = [
-    ./fastfetch
-    ./floorp
-    ./git
-    ./kitty
-    ./spotify
-    ./vscodium
-    ./zsh
-    ./pkgs-stable.nix
-    ./pkgs.nix
-  ];
+  imports =
+    lib.filesystem.listFilesRecursive ./stable
+    ++ lib.filesystem.listFilesRecursive ./unstable;
 }
