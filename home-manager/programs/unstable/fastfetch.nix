@@ -5,7 +5,7 @@
 }:
 {
   home.file.".config/fastfetch/fastfetch.png" = {
-    source = ../../configs/fastfetch/logo.png;
+    source = ../configs/fastfetch/logo.png;
   };
 
   programs.fastfetch = {
