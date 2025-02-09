@@ -5,5 +5,6 @@
     playerctl
     libnotify
     pwvucontrol
+    steam
   ];
 }
