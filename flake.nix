@@ -55,7 +55,13 @@
       homeConfigurations = {
         "bariscodefx@victus" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs plasma-manager; };
+          extraSpecialArgs = {
+            inherit
+              inputs
+              outputs
+              plasma-manager
+              ;
+          };
           modules = [
             ./home-manager/home.nix
           ];
