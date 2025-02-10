@@ -8,10 +8,6 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    plasma-manager.url = "github:pjones/plasma-manager";
-    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
-    plasma-manager.inputs.home-manager.follows = "home-manager";
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
@@ -20,7 +16,6 @@
       self,
       nixpkgs,
       home-manager,
-      plasma-manager,
       ...
     }@inputs:
     let
@@ -59,7 +54,6 @@
             inherit
               inputs
               outputs
-              plasma-manager
               ;
           };
           modules = [
