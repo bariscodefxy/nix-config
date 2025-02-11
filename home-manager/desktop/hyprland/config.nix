@@ -14,6 +14,8 @@
         "waybar"
         "swww init"
         "hyprctl setcursor Vimix-cursors 28"
+        "nvidia-offload steam"
+        "nvidia-offload vesktop"
       ];
 
       env = [
@@ -118,7 +120,7 @@
         "$mainMod SHIFT, q, exit,"
         "$mainMod, T, exec, $terminal"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, B, exec, $browser"
+        "$mainMod, B, exec, nvidia-offload $browser"
         "$mainMod, N, togglefloating,"
         "$mainMod, SPACE, exec, $menu"
 
@@ -171,7 +173,7 @@
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
