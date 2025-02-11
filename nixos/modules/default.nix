@@ -1,13 +1,14 @@
 { ... }:
 {
   imports = [
-    ./network
-    ./system
-    ./user
-    ./boot
-    ./package
-    ./hardware
-    ./game
-    ./garbage
+    ./network.nix
+    ./system.nix
+    ./user.nix
+    ./boot.nix
+    ./package.nix
+    ./hardware.nix
+    ./game.nix
+    ./garbage.nix
+    ./virtualization.nix
   ];
 }
