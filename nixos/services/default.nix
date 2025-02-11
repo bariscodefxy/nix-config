@@ -6,5 +6,6 @@
     ./searxng
     ./tlp
     ./zapret
+    ./libvirtd
   ];
 }
