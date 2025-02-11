@@ -14,8 +14,8 @@
         "waybar"
         "swww init"
         "hyprctl setcursor Vimix-cursors 28"
-        "nvidia-offload steam"
-        "nvidia-offload vesktop"
+        "steam"
+        "vesktop"
       ];
 
       env = [
@@ -120,7 +120,7 @@
         "$mainMod SHIFT, q, exit,"
         "$mainMod, T, exec, $terminal"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, B, exec, nvidia-offload $browser"
+        "$mainMod, B, exec, $browser"
         "$mainMod, N, togglefloating,"
         "$mainMod, SPACE, exec, $menu"
 
