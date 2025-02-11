@@ -10,4 +10,5 @@
       shell = pkgs.zsh;
     };
   };
+  users.extraGroups.docker.members = [ "bariscodefx" ];
 }
