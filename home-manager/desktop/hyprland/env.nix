@@ -28,7 +28,7 @@
     CLUTTER_BACKEND = "wayland";
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    EDITOR = "vscodium";
+    EDITOR = "codium";
     BROWSER = "floorp";
     TERMINAL = "kitty";
   };
