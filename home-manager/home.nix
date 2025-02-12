@@ -8,6 +8,7 @@
     ./programs
     ./services
     ./theme
+    ./dconf.nix
   ];
 
   nixpkgs = {
