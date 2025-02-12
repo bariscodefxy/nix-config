@@ -14,7 +14,6 @@
         "waybar"
         "swww init"
         "hyprctl setcursor Vimix-cursors 28"
-        "vesktop"
       ];
 
       env = [
