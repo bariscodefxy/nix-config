@@ -7,5 +7,6 @@
     ./tlp
     ./zapret
     ./libvirtd
+    ./openssh
   ];
 }
