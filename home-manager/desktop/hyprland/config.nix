@@ -128,6 +128,7 @@
         "$mainMod SHIFT, r, exec, pkill waybar & hyprctl dispatch exec waybar"
 
         ", PRINT, exec, hyprshot -m output"
+        "$mainMod SHIFT, PRINT, exec, hyprshot -m region"
 
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
