@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./cloudflare-warp
     ./dnscrypt
     ./pipewire
     ./searxng
