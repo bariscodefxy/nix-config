@@ -4,19 +4,11 @@
   ...
 }:
 {
-  home.file.".config/fastfetch/fastfetch.png" = {
-    source = ../configs/fastfetch/logo.png;
-  };
-
   programs.fastfetch = {
     enable = true;
     package = pkgs.fastfetch;
     settings = {
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
-      logo = {
-        source = "$HOME/.config/fastfetch/fastfetch.png";
-        width = 37;
-      };
       display = {
         percent = {
           type = 9;

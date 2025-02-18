@@ -10,4 +10,6 @@
       config.allowUnfree = true;
     };
   };
+
+  wayland-overlay = final: _prev: import inputs.nixpkgs-wayland;
 }

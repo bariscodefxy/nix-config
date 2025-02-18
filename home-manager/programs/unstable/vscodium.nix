@@ -49,6 +49,12 @@
           version = "1.1.2";
           sha256 = "sha256-vO9FjzA3+5VTgnBY12eawPCfDzKap07Tgf5jqz/IgN0=";
         }
+        {
+          publisher = "mblode";
+          name = "twig-language";
+          version = "0.9.4";
+          sha256 = "sha256-TZRjodIQkgFlPlMaZs3K8Rrcl9XCUaz4/vnIaxU+SSA=";
+        }
       ];
 
     userSettings = {
