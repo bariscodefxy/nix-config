@@ -4,7 +4,7 @@
         {
             "label": "Run f7task",
             "type": "shell",
-            "command": "home-manager switch --flake .#bariscodefx@victus",
+            "command": "bash rehome.sh",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -14,7 +14,7 @@
         {
             "label": "Run f8task",
             "type": "shell",
-            "command": "sudo nixos-rebuild switch --flake .#victus",
+            "command": "bash resystem.sh",
             "problemMatcher": [],
             "group": {
                 "kind": "build"

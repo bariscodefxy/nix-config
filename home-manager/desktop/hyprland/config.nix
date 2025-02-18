@@ -6,7 +6,7 @@
 
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      "$browser" = "floorp";
+      "$browser" = "zen";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 

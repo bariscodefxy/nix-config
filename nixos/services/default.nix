@@ -2,6 +2,7 @@
 {
   imports = [
     ./cloudflare-warp
+    ./dbus
     ./dnscrypt
     ./pipewire
     ./searxng
