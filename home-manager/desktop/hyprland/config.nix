@@ -100,7 +100,8 @@
       };
 
       input = {
-        kb_layout = "tr";
+        kb_layout = "tr,ru";
+        kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;
         sensitivity = 0;
         touchpad = {
