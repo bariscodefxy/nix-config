@@ -5,7 +5,6 @@
     ./dbus
     ./dnscrypt
     ./libvirtd
-    ./mysql
     ./openssh
     ./pipewire
     ./searxng
