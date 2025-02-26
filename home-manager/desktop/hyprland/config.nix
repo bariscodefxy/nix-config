@@ -1,12 +1,23 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.file.".config/hypr/browser_launcher.sh" = {
+    text = ''
+      #!/bin/bash
+      if [ "$(cat /sys/class/power_supply/ACAD/online)" -eq 1 ]; then
+          nvidia-offload zen
+      else
+          zen
+      fi
+    '';
+    executable = true;
+  };
+
   wayland.windowManager.hyprland = {
     settings = {
       source = "~/.cache/wal/colors-hyprland.conf";
 
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      "$browser" = "zen";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 
@@ -119,7 +130,7 @@
         "$mainMod SHIFT, q, exit,"
         "$mainMod, T, exec, $terminal"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, B, exec, $browser"
+        "$mainMod, B, exec, bash ~/.config/hypr/browser_launcher.sh"
         "$mainMod, N, togglefloating,"
         "$mainMod, SPACE, exec, $menu"
 
