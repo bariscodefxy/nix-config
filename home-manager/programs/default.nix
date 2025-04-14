@@ -27,5 +27,6 @@
     obs-studio
     wget
     vesktop
+    filezilla
   ];
 }
