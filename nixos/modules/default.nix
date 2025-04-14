@@ -1,14 +1,15 @@
 { ... }:
 {
   imports = [
-    ./network.nix
-    ./system.nix
-    ./user.nix
+    ./bluetooth.nix
     ./boot.nix
-    ./package.nix
-    ./hardware.nix
     ./game.nix
     ./garbage.nix
-    ./virtualization.nix
+    ./gpu.nix
+    ./network.nix
+    ./package.nix
+    ./system.nix
+    ./user.nix
+    ./virtualisation.nix
   ];
 }

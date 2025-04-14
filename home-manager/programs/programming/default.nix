@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    ./kde
+    ./vscodium
+    ./pkgs.nix
   ];
 }

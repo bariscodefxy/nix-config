@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./kde
+    ./pkgs.nix
   ];
 }
