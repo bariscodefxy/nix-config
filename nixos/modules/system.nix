@@ -1,9 +1,9 @@
 { ... }:
 {
-  console.keyMap = "trq";
+  console.keyMap = "us";
 
   services.xserver.xkb = {
-    layout = "tr,us";
+    layout = "us,tr";
     variant = "";
     options = "grp:win_space_toggle";
   };

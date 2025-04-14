@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    ./kde
+    ./spotify
+    ./pkgs.nix
   ];
 }

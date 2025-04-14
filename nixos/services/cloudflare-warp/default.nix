@@ -1,6 +1,7 @@
 { ... }:
 {
-  services.cloudflare-warp = {
-    enable = true;
-  };
+  imports = [
+    ./cloudflare-warp.nix
+    ./dispatcher.nix
+  ];
 }
