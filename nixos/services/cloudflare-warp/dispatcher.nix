@@ -9,7 +9,7 @@
       cloudflare-warp
     ];
     serviceConfig = {
-      Type = "oneshot";
+      Type = "simple";
       User = "bariscodefx";
       Group = "users";
       ExecStart = pkgs.writeShellScript "warp-dispatcher" ''
@@ -18,6 +18,10 @@
           
           case "$SSID" in
             "Redmi Note 11 Pro")
+              echo "Mobil veri tespit edildi. warp aciliyor..."
+              warp-cli connect
+              ;;
+            "eduroam")
               echo "Mobil veri tespit edildi. warp aciliyor..."
               warp-cli connect
               ;;
