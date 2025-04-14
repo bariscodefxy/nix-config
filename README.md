@@ -1,3 +1,3 @@
 # bariscodefx's Nix Config
 
-My personal NixOS config. Lives on Hyprland with NVidia.
+bariscodefx's personal nix configuration.
