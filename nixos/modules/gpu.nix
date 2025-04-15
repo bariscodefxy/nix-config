@@ -7,6 +7,8 @@
   environment.systemPackages = with pkgs; [
     mesa
     vulkan-tools
+    nvidia-docker
+    cudatoolkit
   ];
 
   hardware.graphics = {
