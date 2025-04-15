@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
+
     steam
     heroic
-    prismlauncher
     lutris
     bottles
     protonup-qt

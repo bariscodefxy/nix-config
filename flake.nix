@@ -11,6 +11,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    prismlauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
   };
 
   outputs =
