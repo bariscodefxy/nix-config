@@ -9,6 +9,8 @@
 
   home.packages = with pkgs; [
     inputs.firefox.packages."${pkgs.system}".firefox-nightly-bin
+    google-chrome
+    opera
 
     tor-browser-bundle-bin
     termius
@@ -28,5 +30,9 @@
     wget
     vesktop
     filezilla
+    zip
+    lshw
+    ticktick
+    element-desktop
   ];
 }
