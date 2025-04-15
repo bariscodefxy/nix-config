@@ -22,7 +22,11 @@
               warp-cli connect
               ;;
             "eduroam")
-              echo "Mobil veri tespit edildi. warp aciliyor..."
+              echo "Okul agi tespit edildi. warp aciliyor..."
+              warp-cli connect
+              ;;
+            "GSBWIFI")
+              echo "Yurt agi tespit edildi. warp aciliyor..."
               warp-cli connect
               ;;
             *)

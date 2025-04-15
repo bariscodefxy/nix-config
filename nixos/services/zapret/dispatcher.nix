@@ -20,6 +20,10 @@
               echo "Okul agi tespit edildi. zapret kapatiliyor..."
               systemctl stop zapret
               ;;
+            "GSBWIFI")
+              echo "Yurt agi tespit edildi. zapret kapatiliyor..."
+              systemctl stop zapret
+              ;;
             *)
               echo "Bilinmeyen ağ. zapret default olarak aciliyor..."
               systemctl stop zapret
