@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    zsh-powerlevel10k
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -12,9 +16,13 @@
       neofetch = "fastfetch";
     };
 
+    initExtra = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source $HOME/.p10k.zsh
+    '';
+
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
       plugins = [
         "direnv"
       ];
