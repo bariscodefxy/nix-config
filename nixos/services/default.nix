@@ -2,8 +2,8 @@
 {
   imports = [
     ./cloudflare-warp
-    ./dnscrypt
+    ./mullvad
     ./openssh
-    ./zapret
+    ./resolved
   ];
 }
