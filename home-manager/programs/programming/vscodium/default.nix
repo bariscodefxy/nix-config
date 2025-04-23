@@ -55,6 +55,18 @@
           version = "2.25.1";
           sha256 = "sha256-ijGbdiqbDQmZYVqZCx2X4W7KRNV3UDddWvz+9x/vfcA=";
         }
+        {
+          publisher = "GitHub";
+          name = "copilot";
+          version = "1.304.1522";
+          sha256 = "sha256-lhkPvDNjoJGRh7Eu1U380X11L0RWyFCORWU8x7MK+Dk=";
+        }
+        {
+          publisher = "GitHub";
+          name = "copilot-chat";
+          version = "0.27.2025042301";
+          sha256 = "sha256-E4HM0TkUI5lbeW68974Sm5W/YGZ22p1OCmAW+r2gOBY=";
+        }
       ];
 
     userSettings = {

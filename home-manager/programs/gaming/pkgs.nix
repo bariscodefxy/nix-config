@@ -8,5 +8,6 @@
     lutris
     bottles
     protonup-qt
+    protontricks
   ];
 }

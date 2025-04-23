@@ -9,8 +9,7 @@
 
   home.packages = with pkgs; [
     inputs.firefox.packages."${pkgs.system}".firefox-nightly-bin
-    google-chrome
-    opera
+    ungoogled-chromium
 
     tor-browser-bundle-bin
     termius
@@ -34,5 +33,10 @@
     lshw
     ticktick
     element-desktop
+    wpsoffice
+    gimp
+    mullvad-vpn
+    wireguard-tools
+    qbittorrent
   ];
 }
