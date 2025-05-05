@@ -8,6 +8,7 @@
         "docker"
         "vboxusers"
         "libvirtd"
+        "kvm"
       ];
       shell = pkgs.zsh;
     };
