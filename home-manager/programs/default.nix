@@ -4,6 +4,7 @@
     ./apps
     ./gaming
     ./programming
+    ./security
     ./terminal
   ];
 
@@ -31,6 +32,7 @@
     filezilla
     zip
     lshw
+    dnsutils
     ticktick
     element-desktop
     wpsoffice
@@ -38,5 +40,9 @@
     mullvad-vpn
     wireguard-tools
     qbittorrent
+    android-studio
+    realvnc-vnc-viewer
+    jdk23
+    hackneyed
   ];
 }

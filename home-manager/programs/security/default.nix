@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./deepin
+    ./pkgs.nix
   ];
 }
