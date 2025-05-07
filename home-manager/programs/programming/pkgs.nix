@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    code-cursor
+    unstable.code-cursor
     okteta
     glade
   ];

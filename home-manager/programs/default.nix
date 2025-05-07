@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./apps
@@ -9,7 +9,7 @@
   ];
 
   home.packages = with pkgs; [
-    inputs.firefox.packages."${pkgs.system}".firefox-nightly-bin
+    librewolf-bin
     ungoogled-chromium
 
     tor-browser-bundle-bin
@@ -43,6 +43,7 @@
     android-studio
     realvnc-vnc-viewer
     jdk23
-    hackneyed
+    apple-cursor
+    flameshot
   ];
 }
