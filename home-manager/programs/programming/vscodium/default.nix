@@ -1,15 +1,10 @@
 { pkgs, ... }:
 {
-  home.packages =
-    with pkgs;
-    [
-      nixd
-      nixfmt-rfc-style
-
-    ]
-    ++ [
-      pkgs.unstable.nerd-fonts.jetbrains-mono
-    ];
+  home.packages = with pkgs; [
+    nixd
+    nixfmt-rfc-style
+    unstable.nerd-fonts.jetbrains-mono
+  ];
 
   programs.vscode = {
     enable = true;
