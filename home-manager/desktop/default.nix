@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./cinnamon
+    ./theme.nix
   ];
 }

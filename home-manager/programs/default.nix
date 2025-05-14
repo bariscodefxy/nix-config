@@ -45,5 +45,8 @@
     jdk23
     apple-cursor
     flameshot
+    protonvpn-gui
+    protonvpn-cli
+    unstable.windsurf
   ];
 }
