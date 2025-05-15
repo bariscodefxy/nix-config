@@ -10,10 +10,6 @@
       # A bit too hard: "0.5/0 0.5/0 1/1 1/1"
       Option "TabletToolPressureCurve" "0.3/0 0.3/0 1/1 1/1"
     '';
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
     desktopManager.cinnamon.enable = true;
   };
 }
