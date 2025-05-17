@@ -48,5 +48,6 @@
     protonvpn-gui
     protonvpn-cli
     unstable.windsurf
+    go
   ];
 }
