@@ -47,7 +47,7 @@
     flameshot
     protonvpn-gui
     protonvpn-cli
-    unstable.windsurf
+    windsurf
     go
   ];
 }
