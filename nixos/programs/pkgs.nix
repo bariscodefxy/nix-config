@@ -9,5 +9,6 @@
     mangohud
     libguestfs
     virt-viewer
+    sshuttle
   ];
 }
