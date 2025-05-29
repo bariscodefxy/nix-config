@@ -10,7 +10,6 @@
 
   home.packages = with pkgs; [
     librewolf-bin
-    ungoogled-chromium
 
     tor-browser-bundle-bin
     termius
@@ -49,5 +48,6 @@
     protonvpn-cli
     windsurf
     go
+    wireshark
   ];
 }
