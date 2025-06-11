@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    hackneyed
+  ];
   dconf.settings = {
     "org/cinnamon/desktop/interface" = {
       gtk-theme = "Mint-Y-Dark";
       icon-theme = "Mint-Y-Dark";
-      cursor-theme = "Bibata-Original-Classic";
+      cursor-theme = "Hackneyed";
     };
     "org/cinnamon/theme" = {
       name = "Mint-Y-Dark";

@@ -12,6 +12,8 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     prismlauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
+    
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 
   outputs =
@@ -46,6 +48,7 @@
           };
           modules = [
             ./nixos/configuration.nix
+            inputs.minegrub-theme.nixosModules.default
           ];
         };
       };
