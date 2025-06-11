@@ -42,12 +42,14 @@
     android-studio
     realvnc-vnc-viewer
     jdk23
-    apple-cursor
     flameshot
     protonvpn-gui
     protonvpn-cli
     windsurf
     go
     wireshark
+    remmina
+    kdePackages.kdenlive
+    flatpak
   ];
 }

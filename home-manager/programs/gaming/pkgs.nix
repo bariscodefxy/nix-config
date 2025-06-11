@@ -9,5 +9,6 @@
     bottles
     protonup-qt
     protontricks
+    vinegar
   ];
 }
