@@ -14,8 +14,8 @@
 
     shellAliases = {
       ll = "ls -l";
-      resystem = "git add . ; sudo nixos-rebuild switch --flake .#victus ; sudo nix-collect-garbage -d";
-      rehome = "git add . ; home-manager switch --flake .#bariscodefx@victus ; nix-collect-garbage -d";
+      resystem = "git add . ; sudo nixos-rebuild switch --flake .#victus";
+      rehome = "git add . ; home-manager switch --flake .#bariscodefx@victus";
       update = "nix flake update ; git add flake.lock ; git commit -m 'chore(flake.lock): Update' ; git push";
       neofetch = "fastfetch";
     };

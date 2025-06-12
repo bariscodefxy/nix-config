@@ -10,5 +10,6 @@
     nodejs_24
     python3
     python3Packages.virtualenv
+    jetbrains.idea-community-bin
   ];
 }
