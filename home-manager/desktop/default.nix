@@ -2,6 +2,6 @@
 {
   imports = [
     ./apps.nix
-    ./theme.nix
+    ./dconf.nix
   ];
 }
