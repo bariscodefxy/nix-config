@@ -21,5 +21,10 @@
     gnome-font-viewer
     gnome-screenshot
     gnome-logs
+
+    # Extensions and utilities
+    gnomeExtensions.topiconsfix
+    gnome-tweaks
+    gnome-extension-manager
   ];
 }
