@@ -21,7 +21,6 @@
     vim
     vlc
     pywalfox-native
-    libsForQt5.ark
     bitwarden-desktop
     btop
     neovim
