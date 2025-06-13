@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     # Core GNOME applications
     nautilus
-    gnome-terminal
     gedit
     gnome-calculator
     gnome-calendar
@@ -23,8 +22,13 @@
     gnome-logs
 
     # Extensions and utilities
-    gnomeExtensions.topiconsfix
+    gnomeExtensions.dash-to-panel
     gnome-tweaks
     gnome-extension-manager
+
+    # Additional packages
+    ghostty
+    nerd-fonts.ubuntu-mono
+    linux-wallpaperengine
   ];
 }

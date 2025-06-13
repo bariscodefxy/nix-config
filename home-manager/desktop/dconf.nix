@@ -8,7 +8,7 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
-          topiconsfix.extensionUuid
+          dash-to-panel.extensionUuid
         ];
       };
     };
