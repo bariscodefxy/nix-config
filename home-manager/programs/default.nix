@@ -9,8 +9,6 @@
   ];
 
   home.packages = with pkgs; [
-    librewolf-bin
-
     tor-browser-bundle-bin
     termius
     thunderbird
