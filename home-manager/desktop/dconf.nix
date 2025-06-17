@@ -9,6 +9,7 @@
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           dash-to-panel.extensionUuid
+          caffeine.extensionUuid
         ];
       };
     };
