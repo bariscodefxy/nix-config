@@ -5,7 +5,7 @@
     ./boot.nix
     ./game.nix
     ./garbage.nix
-    ./gpu.nix
+    ./hardware.nix
     ./network.nix
     ./package.nix
     ./system.nix
