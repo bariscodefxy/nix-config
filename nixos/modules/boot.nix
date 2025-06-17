@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, config, ... }:
 {
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelParams = [ "nvidia.NVreg_TemporaryFilePath=/var/tmp" ];
+  boot.extraModulePackages = [ config.hardware.nvidia.package ];
+
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub.enable = true;
