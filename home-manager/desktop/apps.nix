@@ -23,6 +23,7 @@
 
     # Extensions and utilities
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.caffeine
     gnome-tweaks
     gnome-extension-manager
 
