@@ -3,8 +3,6 @@
   programs.librewolf = {
     enable = true;
     package = pkgs.librewolf;
-    nativeMessagingHosts = with pkgs; [
-      vdhcoapp
-    ];
   };
+  stylix.targets.librewolf.profileNames = [ "default" ];
 }

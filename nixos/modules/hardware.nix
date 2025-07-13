@@ -32,6 +32,8 @@
     };
   };
 
+  services.switcherooControl.enable = true;
+
   # This fixes the issue with the nvidia driver not being able to suspend/resume
   systemd = {
     # Uncertain if this is still required or not.

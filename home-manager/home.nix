@@ -6,7 +6,6 @@
   imports = [
     ./desktop
     ./programs
-    ./services
   ];
 
   nixpkgs = {

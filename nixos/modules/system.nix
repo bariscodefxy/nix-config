@@ -1,6 +1,6 @@
 { ... }:
 {
-  console.keyMap = "us";
+  console.keyMap = "trq";
 
   services.xserver.xkb = {
     layout = "us,tr";

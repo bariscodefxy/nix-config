@@ -9,8 +9,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     prismlauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     void-editor.url = "github:bariscodefxy/void-editor-flake";
+    stylix.url = "github:nix-community/stylix/release-25.05";
   };
 
   outputs =
@@ -45,7 +45,6 @@
           };
           modules = [
             ./nixos/configuration.nix
-            inputs.minegrub-theme.nixosModules.default
           ];
         };
       };
@@ -60,6 +59,7 @@
               ;
           };
           modules = [
+            inputs.stylix.homeModules.stylix
             ./home-manager/home.nix
           ];
         };

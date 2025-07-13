@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ./cloudflare-warp
+    ./dnscrypt
     ./flatpak
     ./openssh
-    ./resolved
+    ./pipewire
     ./zapret
   ];
 }
