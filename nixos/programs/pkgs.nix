@@ -7,8 +7,5 @@
 
     brightnessctl
     mangohud
-    libguestfs
-    virt-viewer
-    sshuttle
   ];
 }
