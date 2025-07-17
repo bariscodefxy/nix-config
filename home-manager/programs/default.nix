@@ -23,8 +23,9 @@
     btop
     neovim
     obs-studio
+    obs-studio-plugins.obs-vkcapture
     wget
-    vesktop
+    discord-ptb
     filezilla
     zip
     lshw
@@ -48,5 +49,8 @@
     remmina
     kdePackages.kdenlive
     flatpak
+    helvum
+    qjackctl
+    quickemu
   ];
 }

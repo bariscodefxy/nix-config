@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 {
   home.packages = with pkgs; [
     mako
@@ -14,6 +14,7 @@
     xdg-desktop-portal-gtk
     xwayland-satellite
     nautilus
+    inputs.quickshell.packages.x86_64-linux.default
   ];
   
   home.file.".config/niri/" = {
@@ -24,6 +25,11 @@
   home.file.".config/waybar/" = {
     recursive = true;
     source = ./waybar;
+  };
+
+  home.file.".config/quickshell/" = {
+    recursive = true;
+    source = ./quickshell;
   };
 
   stylix = {
