@@ -11,6 +11,7 @@
     prismlauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
     void-editor.url = "github:bariscodefxy/void-editor-flake";
     stylix.url = "github:nix-community/stylix/release-25.05";
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
   };
 
   outputs =

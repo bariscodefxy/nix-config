@@ -7,5 +7,6 @@
 
     brightnessctl
     mangohud
+    pavucontrol
   ];
 }
