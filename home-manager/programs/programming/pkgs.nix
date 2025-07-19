@@ -10,7 +10,7 @@
     nodejs_24
     python3
     python3Packages.virtualenv
-    jetbrains.idea-community-bin
+    stable.jetbrains.idea-community-bin
     inputs.void-editor.packages.${pkgs.system}.default
     code-cursor
   ];

@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     tor-browser-bundle-bin
+    ungoogled-chromium
     termius
     thunderbird
     telegram-desktop
@@ -33,11 +34,11 @@
     ticktick
     element-desktop
     wpsoffice
-    gimp
+    stable.gimp
     mullvad-vpn
     wireguard-tools
     qbittorrent
-    android-studio
+    stable.android-studio
     realvnc-vnc-viewer
     jdk23
     flameshot

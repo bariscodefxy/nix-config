@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, config, ... }:
 {
   home.packages = with pkgs; [
     mako
@@ -6,7 +6,7 @@
     kdePackages.polkit-kde-agent-1
     alacritty
     waybar
-    hackneyed
+    apple-cursor
     wofi
     playerctl
     swaylock
@@ -15,6 +15,7 @@
     xwayland-satellite
     nautilus
     inputs.quickshell.packages.x86_64-linux.default
+    swaybg
   ];
   
   home.file.".config/niri/" = {
@@ -32,14 +33,19 @@
     source = ./quickshell;
   };
 
+  home.file.".config/swaybg/" = {
+    recursive = true;
+    source = ./swaybg;
+  };
+
   stylix = {
     enable = true;
     autoEnable = true;
 
     cursor = {
-      package = pkgs.hackneyed;
-      name = "Hackneyed";
-      size = 48;
+      package = pkgs.apple-cursor;
+      name = "macOS";
+      size = 28;
     };
 
     fonts = {
