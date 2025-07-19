@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./librewolf
     ./spotify
   ];
 }
