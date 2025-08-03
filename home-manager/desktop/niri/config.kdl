@@ -8,8 +8,8 @@ environment {
 }
 
 cursor {
-    xcursor-theme "macOS"
-    xcursor-size 28
+    xcursor-theme "macOS-White"
+    xcursor-size 45
 }
 
 input {
