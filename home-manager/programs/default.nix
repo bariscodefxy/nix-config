@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./apps
@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     tor-browser-bundle-bin
     ungoogled-chromium
+    inputs.zen-browser.packages.${pkgs.system}.default
     termius
     thunderbird
     telegram-desktop
@@ -26,7 +27,7 @@
     obs-studio
     obs-studio-plugins.obs-vkcapture
     wget
-    discord-ptb
+    vesktop
     filezilla
     zip
     lshw

@@ -44,8 +44,8 @@
 
     cursor = {
       package = pkgs.apple-cursor;
-      name = "macOS";
-      size = 28;
+      name = "macOS-White";
+      size = 45;
     };
 
     fonts = {
