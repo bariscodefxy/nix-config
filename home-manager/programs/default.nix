@@ -54,5 +54,6 @@
     helvum
     qjackctl
     quickemu
+    file-roller
   ];
 }
