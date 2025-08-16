@@ -34,7 +34,6 @@
     dnsutils
     ticktick
     element-desktop
-    wpsoffice
     stable.gimp
     mullvad-vpn
     wireguard-tools
