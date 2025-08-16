@@ -8,5 +8,6 @@
     bettercap
     sqlmap
     nmap
+    wireshark
   ];
 }

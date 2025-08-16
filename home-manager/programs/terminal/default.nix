@@ -5,5 +5,6 @@
     ./fastfetch
     ./git
     ./zsh
+    ./pkgs.nix
   ];
 }
