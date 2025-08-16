@@ -64,7 +64,6 @@
               ;
           };
           modules = [
-            inputs.stylix.homeModules.stylix
             ./home-manager/home.nix
           ];
         };
