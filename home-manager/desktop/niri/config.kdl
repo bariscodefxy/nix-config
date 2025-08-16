@@ -1,6 +1,6 @@
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-m" "fit" "-i" ".config/swaybg/wallpaper.jpg";
+spawn-at-startup "swaybg" "-m" "fit" "-i" ".config/swaybg/wallpaper.png";
 
 environment {
     QT_QPA_PLATFORM "wayland"
@@ -77,6 +77,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
     geometry-corner-radius 12
+    draw-border-with-background false
     clip-to-geometry true
 }
 
