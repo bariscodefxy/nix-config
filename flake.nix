@@ -9,9 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     prismlauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
-    void-editor.url = "github:bariscodefxy/void-editor-flake";
-    stylix.url = "github:nix-community/stylix/release-25.05";
-    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    void-editor.url = "git+https://git.bariscodefx.tr/bariscodefx/void-editor-flake";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
