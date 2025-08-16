@@ -691,17 +691,17 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1750163060,
-        "narHash": "sha256-FcP3dREGbsz0St1qCeD3olS/lnFxMshRozdq4YB9oaY=",
-        "owner": "bariscodefxy",
-        "repo": "void-editor-flake",
-        "rev": "fd39dd2a027badc98a2b901fc970be86f094a28e",
-        "type": "github"
+        "lastModified": 1755376251,
+        "narHash": "sha256-Ac/jMCCcBL+k89IDJceqyS78NiSZU6naH0jWcJWVKEY=",
+        "ref": "refs/heads/master",
+        "rev": "0b5bc1a69acd7876443857dd200bfb1877dae660",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://git.bariscodefx.tr/bariscodefx/void-editor-flake"
       },
       "original": {
-        "owner": "bariscodefxy",
-        "repo": "void-editor-flake",
-        "type": "github"
+        "type": "git",
+        "url": "https://git.bariscodefx.tr/bariscodefx/void-editor-flake"
       }
     },
     "zen-browser": {
