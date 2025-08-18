@@ -1,9 +1,10 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    tor-browser-bundle-bin
-    ungoogled-chromium
+    mullvad-browser
     inputs.zen-browser.packages.${pkgs.system}.default
+    ungoogled-chromium
+    tor-browser-bundle-bin
 
     wireguard-tools
     mullvad-vpn
