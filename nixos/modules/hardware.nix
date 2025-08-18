@@ -32,7 +32,14 @@
     };
   };
 
-  services.switcherooControl.enable = true;
+  services.switcherooControl = {
+    enable = true;
+    package = pkgs.switcheroo-control.overrideAttrs (oldAttrs: {
+      nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [
+        pkgs.wrapGAppsNoGuiHook
+      ];
+    });
+  };
 
   # This fixes the issue with the nvidia driver not being able to suspend/resume
   systemd = {
