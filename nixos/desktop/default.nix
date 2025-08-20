@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./plasma6
+    ./plasma
   ];
 }
