@@ -25,8 +25,8 @@
   };
 
   xdg.configFile = {
-    "Kvantum/WhiteSur-opaque".source =
-      "${pkgs.whitesur-kde.overrideAttrs (old: {
+    "Kvantum/WhiteSur-opaque".source = "${
+      pkgs.whitesur-kde.overrideAttrs (old: {
         installPhase = ''
           runHook preInstall
           mkdir -p $out/doc
@@ -35,7 +35,8 @@
           sddm/install.sh -w opaque
           runHook postInstall
         '';
-      })}/share/Kvantum/WhiteSur-opaque";
-    "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=WhiteSur";
+      })
+    }/share/Kvantum/WhiteSur-opaque";
+    "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=WhiteSur-opaque";
   };
 }
