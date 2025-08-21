@@ -3,7 +3,7 @@
   console.keyMap = "trq";
 
   services.xserver.xkb = {
-    layout = "us,tr";
+    layout = "tr,us";
     variant = "";
     options = "grp:win_space_toggle";
   };
