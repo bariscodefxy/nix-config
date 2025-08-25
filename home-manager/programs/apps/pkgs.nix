@@ -26,7 +26,6 @@
     bitwarden-desktop
     vlc
     telegram-desktop
-    neovim
     vesktop
     zip
     remmina

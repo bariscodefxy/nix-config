@@ -4,10 +4,10 @@
     lshw
     wget
     btop
-    vim
     dnsutils
     qjackctl
     flatpak
     quickemu
+    wezterm
   ];
 }
