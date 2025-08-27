@@ -7,14 +7,6 @@
 }:
 {
   home.packages = with pkgs; [
-    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
     lunar-client
-    steam
-    heroic
-    lutris
-    bottles
-    protonup-qt
-    protontricks
-    vinegar
   ];
 }

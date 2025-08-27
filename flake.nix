@@ -8,7 +8,6 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    prismlauncher.url = "github:Diegiwg/PrismLauncher-Cracked";
     void-editor.url = "git+https://git.bariscodefx.tr/bariscodefx/void-editor-flake";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
