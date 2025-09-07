@@ -6,8 +6,5 @@
     btop
     vim
     dnsutils
-    qjackctl
-    flatpak
-    quickemu
   ];
 }

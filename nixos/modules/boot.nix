@@ -2,8 +2,13 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [ "nvidia.NVreg_TemporaryFilePath=/var/tmp" ];
-  boot.kernelModules = [ "snd-hda-codec-realtek" "hp_wmi" "v4l2loopback" ];
-  boot.extraModulePackages = [ config.hardware.nvidia.package config.boot.kernelPackages.v4l2loopback pkgs.snd-hda-codec-realtek pkgs.hp-wmi-fan-control ];
+  boot.extraModulePackages = [
+    config.hardware.nvidia.package
+    config.boot.kernelPackages.v4l2loopback
+
+    # (WIP)
+    # pkgs.vmware-host-modules-workstation-17-6-0
+  ];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;

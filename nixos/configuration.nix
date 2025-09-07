@@ -3,7 +3,6 @@
   imports = [
     ./hardware-configuration.nix
     ./desktop
-    ./programs
     ./modules
     ./services
   ];
