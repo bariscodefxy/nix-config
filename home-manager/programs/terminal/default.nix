@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ./direnv
-    ./fastfetch
-    ./git
-    ./zsh
+    ./direnv.nix
+    ./fastfetch.nix
+    ./git.nix
     ./pkgs.nix
+    ./zsh.nix
   ];
 }
