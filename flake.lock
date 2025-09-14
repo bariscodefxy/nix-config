@@ -90,29 +90,12 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1749285348,
-        "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "spicetify-nix": "spicetify-nix",
-        "void-editor": "void-editor",
         "zen-browser": "zen-browser"
       }
     },
@@ -148,24 +131,6 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
-      }
-    },
-    "void-editor": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1755376251,
-        "narHash": "sha256-Ac/jMCCcBL+k89IDJceqyS78NiSZU6naH0jWcJWVKEY=",
-        "ref": "refs/heads/master",
-        "rev": "0b5bc1a69acd7876443857dd200bfb1877dae660",
-        "revCount": 6,
-        "type": "git",
-        "url": "https://git.bariscodefx.tr/bariscodefx/void-editor-flake"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.bariscodefx.tr/bariscodefx/void-editor-flake"
       }
     },
     "zen-browser": {

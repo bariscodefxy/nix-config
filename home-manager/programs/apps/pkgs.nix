@@ -12,6 +12,6 @@
     kdePackages.kdenlive
     helvum
     lazpaint
-    vmware-workstation
+    hackneyed
   ];
 }
