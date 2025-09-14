@@ -23,7 +23,7 @@
       enable = true;
     };
 
-    hardware.nvidia.prime = {
+    prime = {
       offload = {
         enable = true;
         enableOffloadCmd = true;
