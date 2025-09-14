@@ -5,5 +5,6 @@
     nixfmt-rfc-style
     nerd-fonts.jetbrains-mono
     zed-editor
+    windsurf
   ];
 }
