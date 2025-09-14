@@ -4,7 +4,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./garbage.nix
-#    ./hardware.nix
+    ./hardware.nix
     ./network.nix
     ./package.nix
     ./programs.nix
