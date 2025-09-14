@@ -1,11 +1,11 @@
 { ... }:
 {
   imports = [
-    ./dnscrypt
-    ./flatpak
-    #./mullvad
-    ./openssh
-    ./pipewire
-    ./zapret
+    ./dnscrypt.nix
+    ./flatpak.nix
+    #./mullvad.nix
+    ./openssh.nix
+    ./pipewire.nix
+    ./zapret.nix
   ];
 }
