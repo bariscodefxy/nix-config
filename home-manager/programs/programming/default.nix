@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./vscodium
+    ./vscodium.nix
     ./pkgs.nix
   ];
 }
