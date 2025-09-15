@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./spotify
     ./pkgs.nix
+    ./spotify.nix
   ];
 }
