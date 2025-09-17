@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     brave
+    tor-browser
     element-desktop
     filezilla
     obs-studio
@@ -13,5 +14,6 @@
     helvum
     lazpaint
     hackneyed
+    mullvad-vpn
   ];
 }
