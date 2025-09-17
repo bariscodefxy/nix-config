@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     brave
+    tor-browser
     element-desktop
     filezilla
     obs-studio
@@ -12,6 +13,7 @@
     kdePackages.kdenlive
     helvum
     lazpaint
-    vmware-workstation
+    hackneyed
+    mullvad-vpn
   ];
 }
