@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    brave
+    ungoogled-chromium
     tor-browser
     element-desktop
     filezilla
