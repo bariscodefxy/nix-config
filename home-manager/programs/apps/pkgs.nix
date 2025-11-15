@@ -15,5 +15,6 @@
     lazpaint
     hackneyed
     mullvad-vpn
+    qbittorrent
   ];
 }
