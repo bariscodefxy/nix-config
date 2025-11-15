@@ -25,6 +25,7 @@
         "editor.formatOnPaste" = true;
         "git.confirmSync" = false;
         "git.autofetch" = true;
+        "explorer.confirmDelete" = false;
       };
     };
   };
