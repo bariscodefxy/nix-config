@@ -33,7 +33,7 @@ ${YELLOW}Targets:${NC}
   home                Build and activate Home Manager configuration
   all                 Build and activate both system and home configurations
 
-${YELLOW}Specializations:${NC} (optional)
+${YELLOW}Specializations:${NC} (optional, only applies to 'system' or 'all')
   Specify a specialization to build (e.g., "work", "gaming", etc.)
 
 ${YELLOW}Options:${NC}
@@ -48,12 +48,12 @@ ${YELLOW}Options:${NC}
   --clean             Run garbage collection after build
 
 ${YELLOW}Examples:${NC}
-  ./build.sh system                # Switch to new system configuration
-  ./build.sh home                  # Switch to new home configuration
-  ./build.sh all                   # Switch both system and home
-  ./build.sh system work           # Switch to system with work specialization
-  ./build.sh home --dry-run        # Show what home-manager would do
-  ./build.sh all --boot --upgrade  # Upgrade and add to boot menu
+  ./build.sh system           # Switch to new system configuration
+  ./build.sh home             # Switch to new home configuration (no specialization needed)
+  ./build.sh all              # Switch both system and home
+  ./build.sh system work      # Switch to system with work specialization
+  ./build.sh home --dry-run   # Show what home-manager would do
+  ./build.sh all --boot --upgrade # Upgrade and add to boot menu
 
 EOF
 }
@@ -127,11 +127,6 @@ if [[ -z "$TARGET" ]]; then
     TARGET="all"
 fi
 
-# Add specialization to flags if specified
-if [[ -n "$SPECIALIZATION" ]]; then
-    FLAGS+=("--specialisation" "$SPECIALIZATION")
-fi
-
 # Function to run a command with dry-run support
 run_command() {
     local cmd=("$@")
@@ -163,39 +158,48 @@ fi
 case "$TARGET" in
     system)
         echo -e "${GREEN}Building system configuration...${NC}"
+
+        # Construct NixOS flags including specialization
+        NIXOS_FLAGS=("${FLAGS[@]}")
+        if [[ -n "$SPECIALIZATION" ]]; then
+            NIXOS_FLAGS+=("--specialisation" "$SPECIALIZATION")
+        fi
+
         if [ "$ACTION" = "boot" ]; then
-            run_command sudo nixos-rebuild boot --flake .#victus "${FLAGS[@]}" || error_exit "System build failed"
+            run_command sudo nixos-rebuild boot --flake .#victus "${NIXOS_FLAGS[@]}" || error_exit "System build failed"
         elif [ "$ACTION" = "test" ]; then
-            run_command sudo nixos-rebuild test --flake .#victus "${FLAGS[@]}" || error_exit "System build failed"
+            run_command sudo nixos-rebuild test --flake .#victus "${NIXOS_FLAGS[@]}" || error_exit "System build failed"
         else
-            run_command sudo nixos-rebuild switch --flake .#victus "${FLAGS[@]}" || error_exit "System build failed"
+            run_command sudo nixos-rebuild switch --flake .#victus "${NIXOS_FLAGS[@]}" || error_exit "System build failed"
         fi
         ;;
         
     home)
         echo -e "${GREEN}Building home configuration...${NC}"
-        if [ "$DRY_RUN" = true ]; then
-            FLAGS+=("--show-trace")
-        fi
+        # home-manager is run with only the general FLAGS (no specialization)
         run_command home-manager "$ACTION" --flake .#bariscodefx@victus "${FLAGS[@]}" || error_exit "Home build failed"
         ;;
         
     all)
         echo -e "${GREEN}Building both system and home configurations...${NC}"
         
-        # Build system first
-        if [ "$ACTION" = "boot" ]; then
-            run_command sudo nixos-rebuild boot --flake .#victus "${FLAGS[@]}" || error_exit "System build failed"
-        elif [ "$ACTION" = "test" ]; then
-            run_command sudo nixos-rebuild test --flake .#victus "${FLAGS[@]}" || error_exit "System build failed"
-        else
-            run_command sudo nixos-rebuild switch --flake .#victus "${FLAGS[@]}" || error_exit "System build failed"
+        # Construct NixOS flags including specialization
+        NIXOS_FLAGS=("${FLAGS[@]}")
+        if [[ -n "$SPECIALIZATION" ]]; then
+            NIXOS_FLAGS+=("--specialisation" "$SPECIALIZATION")
         fi
         
-        # Then build home
-        if [ "$DRY_RUN" = true ]; then
-            FLAGS+=("--show-trace")
+        # Build system first (with specialization)
+        if [ "$ACTION" = "boot" ]; then
+            run_command sudo nixos-rebuild boot --flake .#victus "${NIXOS_FLAGS[@]}" || error_exit "System build failed"
+        elif [ "$ACTION" = "test" ]; then
+            run_command sudo nixos-rebuild test --flake .#victus "${NIXOS_FLAGS[@]}" || error_exit "System build failed"
+        else
+            run_command sudo nixos-rebuild switch --flake .#victus "${NIXOS_FLAGS[@]}" || error_exit "System build failed"
         fi
+        
+        # Then build home (without specialization)
+        # We enforce 'switch' for home manager when running 'all' to ensure configuration is applied
         run_command home-manager switch --flake .#bariscodefx@victus "${FLAGS[@]}" || error_exit "Home build failed"
         ;;
         
