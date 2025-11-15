@@ -22,6 +22,7 @@
         "editor.fontLigatures" = true;
         "editor.formatOnSave" = true;
         "editor.formatOnPaste" = true;
+        "git.confirmSync" = false;
       };
     };
   };
