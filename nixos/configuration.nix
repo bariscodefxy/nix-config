@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./desktop
+    ./desktop.nix
     ./modules
     ./services
   ];
