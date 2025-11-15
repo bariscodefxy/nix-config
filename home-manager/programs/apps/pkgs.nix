@@ -16,5 +16,6 @@
     hackneyed
     mullvad-vpn
     qbittorrent
+    teams-for-linux
   ];
 }
