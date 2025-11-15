@@ -17,5 +17,6 @@
     mullvad-vpn
     qbittorrent
     teams-for-linux
+    thunderbird
   ];
 }
