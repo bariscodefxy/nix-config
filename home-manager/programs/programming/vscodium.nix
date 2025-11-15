@@ -17,6 +17,8 @@
         devsense.phptools-vscode
         devsense.composer-php-vscode
         rooveterinaryinc.roo-cline
+        github.copilot
+        github.copilot-chat
       ];
       userSettings = {
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
@@ -26,6 +28,12 @@
         "git.confirmSync" = false;
         "git.autofetch" = true;
         "explorer.confirmDelete" = false;
+        "roo-cline.allowedCommands" = [
+          "git log"
+          "git diff"
+          "git show"
+        ];
+        "roo-cline.deniedCommands" = [ ];
       };
     };
   };
