@@ -16,6 +16,7 @@
         ziglang.vscode-zig
         devsense.phptools-vscode
         devsense.composer-php-vscode
+        rooveterinaryinc.roo-cline
       ];
       userSettings = {
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
