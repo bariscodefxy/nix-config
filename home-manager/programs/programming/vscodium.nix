@@ -23,6 +23,7 @@
         "editor.formatOnSave" = true;
         "editor.formatOnPaste" = true;
         "git.confirmSync" = false;
+        "git.autofetch" = true;
       };
     };
   };
