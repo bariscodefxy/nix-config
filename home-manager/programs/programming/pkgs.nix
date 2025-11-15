@@ -6,5 +6,6 @@
     nerd-fonts.jetbrains-mono
     zed-editor
     windsurf
+    unstable.kiro
   ];
 }
