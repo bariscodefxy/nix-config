@@ -11,22 +11,26 @@
   specialisation = {
     "redsocks" = {
       inheritParentConfig = true;
-      configuration = { config, pkgs, ... }: {
-        system.nixos.tags = [ "spec-redsocks" ];
-        imports = [
-          ./redsocks.nix
-        ];
-      };
+      configuration =
+        { config, pkgs, ... }:
+        {
+          system.nixos.tags = [ "redsocks" ];
+          imports = [
+            ./redsocks.nix
+          ];
+        };
     };
     "zapret" = {
       inheritParentConfig = true;
-      configuration = { config, pkgs, ... }: {
-        system.nixos.tags = [ "spec-zapret" ];
-        imports = [
-          ./dnscrypt.nix
-          ./zapret.nix
-        ];
-      };
+      configuration =
+        { config, pkgs, ... }:
+        {
+          system.nixos.tags = [ "zapret" ];
+          imports = [
+            ./dnscrypt.nix
+            ./zapret.nix
+          ];
+        };
     };
   };
 }
