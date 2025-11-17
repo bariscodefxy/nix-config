@@ -5,5 +5,6 @@
   programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs; [
     bottles
+    steam
   ];
 }
