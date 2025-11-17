@@ -6,6 +6,6 @@
     nerd-fonts.jetbrains-mono
     zed-editor
     windsurf
-    unstable.kiro
+    pkgs.kiro # pkgs/kiro/package.nix in the root
   ];
 }
