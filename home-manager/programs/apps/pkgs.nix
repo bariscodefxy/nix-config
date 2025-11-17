@@ -18,5 +18,6 @@
     qbittorrent
     teams-for-linux
     thunderbird
+    gimp
   ];
 }
