@@ -7,5 +7,6 @@
     zed-editor
     windsurf
     pkgs.kiro # pkgs/kiro/package.nix in the root
+    code-cursor
   ];
 }
