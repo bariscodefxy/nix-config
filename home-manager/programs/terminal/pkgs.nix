@@ -6,5 +6,7 @@
     btop
     vim
     dnsutils
+    unrar
+    unzip
   ];
 }
