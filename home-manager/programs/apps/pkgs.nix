@@ -19,5 +19,8 @@
     teams-for-linux
     thunderbird
     gimp
+    teamspeak3
+    teamspeak6-client
+    libreoffice
   ];
 }
