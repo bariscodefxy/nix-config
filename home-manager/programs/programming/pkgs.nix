@@ -6,7 +6,7 @@
     nerd-fonts.jetbrains-mono
     zed-editor
     windsurf
-    pkgs.kiro # pkgs/kiro/package.nix in the root
+    unstable.kiro-fhs
     code-cursor
     claude-code
   ];

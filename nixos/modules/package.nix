@@ -27,6 +27,7 @@
         experimental-features = "nix-command flakes";
         flake-registry = "";
         nix-path = config.nix.nixPath;
+        auto-optimise-store = true;
       };
       channel.enable = false;
 
