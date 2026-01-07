@@ -2,6 +2,7 @@
 {
   imports = [
     ./flatpak.nix
+    ./mariadb.nix
     ./mullvad.nix
     ./openssh.nix
     ./pipewire.nix
