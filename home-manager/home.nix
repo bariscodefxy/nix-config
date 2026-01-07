@@ -33,7 +33,10 @@
   home.stateVersion = "25.05";
 
   home.activation.linkDesktopApplications = {
-    after = [ "writeBoundary" "createXdgUserDirectories" ];
+    after = [
+      "writeBoundary"
+      "createXdgUserDirectories"
+    ];
     before = [ ];
     data = ''
       rm -rf ${config.xdg.dataHome}/nix-desktop-files/applications
@@ -44,4 +47,3 @@
   xdg.enable = true;
   xdg.systemDirs.data = [ "${config.xdg.dataHome}/nix-desktop-files" ];
 }
-
