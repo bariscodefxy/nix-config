@@ -1,0 +1,30 @@
+{
+  stdenv,
+  fetchurl,
+  configFile,
+}:
+stdenv.mkDerivation rec {
+  name = "phpmyadmin-${version}";
+  version = "5.2.3";
+
+  src = fetchurl {
+    url = "https://files.phpmyadmin.net/phpMyAdmin/${version}/phpMyAdmin-${version}-all-languages.tar.gz";
+    sha256 = "sha256-ErocQl+kBxq71OdmjJ696sCwdVpGem1tUCYSK7R8ECs=";
+  };
+
+  phases = [
+    "unpackPhase"
+    "installPhase"
+  ];
+
+  installPhase = ''
+    mkdir -p $out
+    cp -r * $out/
+    ln -s ${configFile} $out/config.inc.php
+  '';
+
+  meta = {
+    homepage = "https://www.phpmyadmin.net/";
+    description = "phpMyAdmin is a free and open source administration tool for MySQL and MariaDB";
+  };
+}

@@ -9,5 +9,6 @@
     unstable.kiro-fhs
     code-cursor
     claude-code
+    unstable.antigravity
   ];
 }

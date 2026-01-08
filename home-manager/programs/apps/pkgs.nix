@@ -12,6 +12,7 @@
     ];
 
   home.packages = with pkgs; [
+    chromium
     tor-browser
     element-desktop
     filezilla

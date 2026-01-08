@@ -1,23 +1,25 @@
 { ... }:
 {
   imports = [
+    ./avahi.nix
     ./flatpak.nix
     ./mariadb.nix
     ./mullvad.nix
+    ./nginx.nix
     ./openssh.nix
     ./pipewire.nix
     ./xscreensaver.nix
   ];
 
   specialisation = {
-    "redsocks" = {
+    "singbox" = {
       inheritParentConfig = true;
       configuration =
         { config, pkgs, ... }:
         {
-          system.nixos.tags = [ "redsocks" ];
+          system.nixos.tags = [ "singbox" ];
           imports = [
-            ./redsocks.nix
+            ./singbox.nix
           ];
         };
     };

@@ -8,5 +8,6 @@
     dnsutils
     unrar
     unzip
+    nmap
   ];
 }

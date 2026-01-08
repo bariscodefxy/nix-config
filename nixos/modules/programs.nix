@@ -6,5 +6,6 @@
     bottles
     steam
     badvpn
+    v2rayn
   ];
 }
