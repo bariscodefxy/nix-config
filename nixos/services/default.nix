@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./avahi.nix
     ./flatpak.nix
     ./mariadb.nix
     ./mullvad.nix
