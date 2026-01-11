@@ -9,5 +9,6 @@
     unrar
     unzip
     nmap
+    wireguard-tools
   ];
 }
