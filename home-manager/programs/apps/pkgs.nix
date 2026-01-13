@@ -34,5 +34,6 @@
     teamspeak6-client
     libreoffice
     openconnect
+    realvnc-vnc-viewer
   ];
 }
