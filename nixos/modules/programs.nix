@@ -7,5 +7,6 @@
     steam
     badvpn
     v2rayn
+    protonup-qt
   ];
 }
