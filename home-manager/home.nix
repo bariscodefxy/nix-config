@@ -2,10 +2,12 @@
   outputs,
   config,
   lib,
+  inputs,
   ...
 }:
 {
   imports = [
+    ./desktop
     ./programs
   ];
 
@@ -14,6 +16,8 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+
+      inputs.nix-vscode-extensions.overlays.default
     ];
     config = {
       allowUnfree = true;
