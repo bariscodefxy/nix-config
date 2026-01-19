@@ -9,5 +9,8 @@
     unstable.kiro-fhs
     code-cursor
     claude-code
+    php
+    php84Packages.composer
+    nodejs_24
   ];
 }
