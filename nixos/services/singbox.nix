@@ -76,6 +76,9 @@ in
     ];
     wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
+    environment = {
+      ENABLE_DEPRECATED_SPECIAL_OUTBOUNDS = "true";
+    };
 
     serviceConfig = {
       ExecStartPre = pkgs.writeShellScript "prepare-config" ''

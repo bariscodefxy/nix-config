@@ -7,6 +7,8 @@
     ./nginx.nix
     ./openssh.nix
     ./pipewire.nix
+    ./squid.nix
+    ./victus-control/default.nix
     ./xscreensaver.nix
   ];
 
