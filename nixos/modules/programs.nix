@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
@@ -8,5 +13,8 @@
     badvpn
     v2rayn
     protonup-qt
+    stdenv.cc
+    gnumake
+    victus-control
   ];
 }

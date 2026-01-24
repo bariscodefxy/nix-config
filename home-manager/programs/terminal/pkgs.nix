@@ -9,7 +9,6 @@
     unrar
     unzip
     nmap
-    wireguard-tools
     gnome-terminal
   ];
 }

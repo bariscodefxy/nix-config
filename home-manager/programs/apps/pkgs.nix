@@ -9,10 +9,10 @@
     with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
       ublock-origin
       bitwarden
+      darkreader
     ];
 
   home.packages = with pkgs; [
-    chromium
     tor-browser
     element-desktop
     filezilla
@@ -25,15 +25,12 @@
     helvum
     lazpaint
     hackneyed
-    mullvad-vpn
     qbittorrent
     teams-for-linux
     thunderbird
     gimp
-    teamspeak3
     teamspeak6-client
     libreoffice
-    openconnect
     realvnc-vnc-viewer
   ];
 }

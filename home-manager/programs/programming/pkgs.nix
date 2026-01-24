@@ -6,11 +6,13 @@
     nerd-fonts.jetbrains-mono
     zed-editor
     windsurf
-    unstable.kiro-fhs
+    kiro-fhs
     code-cursor
     claude-code
     php
     php84Packages.composer
     nodejs_24
+    ffmpeg
+    arduino-ide
   ];
 }

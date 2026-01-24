@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-  home.packages = with pkgs; [
-    gnomeExtensions.caffeine
+  home.packages = with pkgs.gnomeExtensions; [
+    caffeine
+    paperwm
+    pkgs.gnome-ext-hanabi
   ];
 }
