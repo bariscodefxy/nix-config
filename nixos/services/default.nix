@@ -4,7 +4,7 @@
     ./flatpak.nix
     ./mariadb.nix
     ./mullvad.nix
-    ./nginx.nix
+    #./nginx.nix
     ./openssh.nix
     ./pipewire.nix
     ./squid.nix
