@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
+    ./applications.nix
     ./nixcord.nix
-    ./pkgs.nix
     ./spotify.nix
   ];
 }
