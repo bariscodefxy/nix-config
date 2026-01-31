@@ -4,7 +4,7 @@
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.lyra-cursors;
-    name = "LyraX-cursors";
+    name = "LyraB-cursors";
     size = 32;
   };
 }
