@@ -3,6 +3,7 @@
   imports = [
     ./input.nix
     ./keybinds.nix
+    ./misc.nix
     ./variables.nix
   ];
 
