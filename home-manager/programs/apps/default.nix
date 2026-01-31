@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    ./nixcord.nix
     ./applications.nix
+    ./nixcord.nix
     ./spotify.nix
   ];
 }
