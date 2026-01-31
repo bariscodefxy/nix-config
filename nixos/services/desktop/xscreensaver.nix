@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   services.xscreensaver.enable = true;
   security.pam.services.xscreensaver.enable = true;

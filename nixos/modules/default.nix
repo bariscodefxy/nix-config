@@ -7,8 +7,9 @@
     ./garbage.nix
     ./graphics.nix
     ./network.nix
-    ./package.nix
-    ./programs.nix
+    ./nixpkgs-config.nix
+    ./program-config.nix
+    ./system-packages.nix
     ./system.nix
     ./user.nix
     ./virtualisation.nix

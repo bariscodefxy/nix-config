@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    ./games.nix
+    ./tlp.nix
+    ./upower.nix
   ];
 }

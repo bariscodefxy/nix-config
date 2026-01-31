@@ -1,5 +1,5 @@
 pkgs: {
-  phpmyadmin = pkgs.callPackage ./phpmyadmin/pkg.nix { };
+  phpmyadmin = pkgs.callPackage ./phpmyadmin/package.nix { };
   hp-wmi-fan-and-backlight-control =
     {
       kernel ? pkgs.linuxPackages.kernel,

@@ -2,6 +2,6 @@
 {
   imports = [
     ./vscodium.nix
-    ./pkgs.nix
+    ./development-tools.nix
   ];
 }

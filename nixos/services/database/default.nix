@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./games.nix
+    ./mariadb.nix
   ];
 }

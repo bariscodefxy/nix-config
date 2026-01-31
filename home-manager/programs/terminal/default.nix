@@ -5,7 +5,7 @@
     ./fastfetch.nix
     ./git.nix
     ./neovim.nix
-    ./pkgs.nix
+    ./cli-utilities.nix
     ./zsh.nix
   ];
 }
