@@ -2,7 +2,7 @@
 {
   imports = [
     ./nixcord.nix
-    ./pkgs.nix
+    ./applications.nix
     ./spotify.nix
   ];
 }

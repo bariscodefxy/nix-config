@@ -7,7 +7,7 @@
     ./garbage.nix
     ./graphics.nix
     ./network.nix
-    ./package.nix
+    ./nixpkgs-config.nix
     ./programs.nix
     ./system.nix
     ./user.nix
