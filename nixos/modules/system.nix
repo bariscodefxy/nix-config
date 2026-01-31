@@ -25,4 +25,8 @@
   };
 
   system.nixos.tags = [ "default" ];
+
+  nix.settings.cores = 4;
+
+  zramSwap.enable = true;
 }

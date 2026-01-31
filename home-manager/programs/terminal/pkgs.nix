@@ -4,7 +4,6 @@
     lshw
     wget
     btop
-    vim
     dnsutils
     unrar
     unzip

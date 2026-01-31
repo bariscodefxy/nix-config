@@ -20,7 +20,6 @@
         aswinkumar863.smarty-template-support
       ];
       userSettings = {
-        "editor.fontFamily" = "JetBrainsMono Nerd Font";
         "editor.fontLigatures" = true;
         "editor.formatOnSave" = true;
         "editor.formatOnPaste" = true;

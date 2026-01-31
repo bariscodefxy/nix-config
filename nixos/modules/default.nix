@@ -3,7 +3,6 @@
   imports = [
     ./bluetooth.nix
     ./boot.nix
-    ./desktop.nix
     ./fonts.nix
     ./garbage.nix
     ./graphics.nix
@@ -13,5 +12,6 @@
     ./system.nix
     ./user.nix
     ./virtualisation.nix
+    ./xdg.nix
   ];
 }

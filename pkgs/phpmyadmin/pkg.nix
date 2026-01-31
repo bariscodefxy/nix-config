@@ -1,7 +1,6 @@
 {
   stdenv,
   fetchurl,
-  configFile,
 }:
 stdenv.mkDerivation rec {
   name = "phpmyadmin-${version}";
@@ -20,7 +19,6 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out
     cp -r * $out/
-    ln -s ${configFile} $out/config.inc.php
   '';
 
   meta = {

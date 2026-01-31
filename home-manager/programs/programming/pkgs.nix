@@ -14,5 +14,6 @@
     nodejs_24
     ffmpeg
     arduino-ide
+    antigravity-fhs
   ];
 }
