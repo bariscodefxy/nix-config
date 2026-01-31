@@ -7,8 +7,8 @@
 }:
 {
   imports = [
-    ./desktop
     ./programs
+    ./services
   ];
 
   nixpkgs = {
@@ -34,7 +34,7 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 
   home.activation.linkDesktopApplications = {
     after = [

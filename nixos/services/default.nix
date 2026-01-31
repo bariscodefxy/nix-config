@@ -2,12 +2,15 @@
 {
   imports = [
     ./flatpak.nix
+    ./greetd.nix
     ./mariadb.nix
     ./mullvad.nix
     #./nginx.nix
     ./openssh.nix
     ./pipewire.nix
     ./squid.nix
+    ./tlp.nix
+    ./upower.nix
     ./victus-control/default.nix
     ./xscreensaver.nix
   ];
