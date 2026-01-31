@@ -1,18 +1,11 @@
 { ... }:
 {
   imports = [
-    ./flatpak.nix
-    ./greetd.nix
-    ./mariadb.nix
-    ./mullvad.nix
-    #./nginx.nix
-    ./openssh.nix
-    ./pipewire.nix
-    ./squid.nix
-    ./tlp.nix
-    ./upower.nix
-    ./victus-control/default.nix
-    ./xscreensaver.nix
+    ./network
+    ./desktop
+    ./power
+    ./database
+    ./hardware
   ];
 
   specialisation = {
@@ -23,7 +16,7 @@
         {
           system.nixos.tags = [ "singbox" ];
           imports = [
-            ./singbox.nix
+            ./network/singbox.nix
           ];
         };
     };
@@ -34,8 +27,8 @@
         {
           system.nixos.tags = [ "zapret" ];
           imports = [
-            ./dnscrypt.nix
-            ./zapret.nix
+            ./network/dnscrypt.nix
+            ./network/zapret.nix
           ];
         };
     };

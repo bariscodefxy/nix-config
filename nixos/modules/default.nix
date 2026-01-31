@@ -8,7 +8,8 @@
     ./graphics.nix
     ./network.nix
     ./nixpkgs-config.nix
-    ./programs.nix
+    ./program-config.nix
+    ./system-packages.nix
     ./system.nix
     ./user.nix
     ./virtualisation.nix

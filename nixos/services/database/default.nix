@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./mariadb.nix
+  ];
+}
