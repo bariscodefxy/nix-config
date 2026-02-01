@@ -21,7 +21,20 @@ from urllib.error import URLError, HTTPError
 
 
 class MasterlistFetcher:
-    """Sunucu masterlist'lerini almak için ana sınıf / Main class for fetching server masterlists"""
+    """
+    Sunucu masterlist'lerini almak için ana sınıf
+    Main class for fetching server masterlists
+    
+    Supports multiple protocols:
+    - HTTP/JSON: JSON formatted server lists via HTTP
+    - HTTP/Text: Plain text server lists via HTTP
+    - Valve/Steam: Steam masterlist protocol for Source engine games
+    
+    Usage:
+        fetcher = MasterlistFetcher()
+        servers = fetcher.fetch_http_json("https://example.com/servers.json")
+        servers = fetcher.fetch_valve_masterlist(app_id=240)
+    """
     
     def __init__(self):
         self.timeout = 5
@@ -137,6 +150,9 @@ class MasterlistFetcher:
                     
                     # Sunucu adreslerini parse et / Parse server addresses
                     offset = 6
+                    last_ip = None
+                    last_port = None
+                    
                     while offset + 6 <= len(data):
                         # 4 byte IP + 2 byte port (big-endian)
                         ip_bytes = data[offset:offset+4]
@@ -150,13 +166,17 @@ class MasterlistFetcher:
                             return servers
                         
                         servers.append((ip, port))
-                        
-                        # Bir sonraki batch için sorgu gönder / Send query for next batch
-                        seed = f"{ip}:{port}"
-                        query = struct.pack('B', 0x31) + struct.pack('B', region) + seed.encode() + b'\x00'
-                        sock.sendto(query, masterlist_addr)
+                        last_ip = ip
+                        last_port = port
                         
                         offset += 6
+                    
+                    # Batch işlendikten sonra bir sonraki batch için sorgu gönder
+                    # Send query for next batch after processing current batch
+                    if last_ip and last_port:
+                        seed = f"{last_ip}:{last_port}"
+                        query = struct.pack('B', 0x31) + struct.pack('B', region) + seed.encode() + b'\x00'
+                        sock.sendto(query, masterlist_addr)
                         
                 except socket.timeout:
                     break
