@@ -102,6 +102,27 @@ class MasterlistFetcher:
             print(f"Hata / Error: {e}", file=sys.stderr)
             return []
     
+    def _build_masterlist_query(self, seed: str, region: int, app_id: int = 0) -> bytes:
+        """
+        Valve masterlist protokolü için sorgu paketi oluşturur
+        Builds query packet for Valve masterlist protocol
+        
+        Args:
+            seed: Başlangıç adresi (örn: "0.0.0.0:0") / Starting address (e.g., "0.0.0.0:0")
+            region: Bölge kodu / Region code
+            app_id: Steam uygulama ID (opsiyonel) / Steam application ID (optional)
+            
+        Returns:
+            Sorgu paketi / Query packet
+        """
+        # Format: 0x31 (query byte) + region + seed + null + optional filter
+        query = struct.pack('B', 0x31) + struct.pack('B', region) + seed.encode() + b'\x00'
+        
+        if app_id > 0:
+            query += f"\\appid\\{app_id}".encode() + b'\x00'
+        
+        return query
+    
     def fetch_valve_masterlist(self, masterlist_ip: str = "hl2master.steampowered.com", 
                                masterlist_port: int = 27011, 
                                region: int = 0xFF,
@@ -130,13 +151,8 @@ class MasterlistFetcher:
             masterlist_addr = (socket.gethostbyname(masterlist_ip), masterlist_port)
             
             # İlk sorgu paketi / Initial query packet
-            # Format: 0x31 (query byte) + region + "0.0.0.0:0" + filter
             seed = "0.0.0.0:0"
-            query = struct.pack('B', 0x31) + struct.pack('B', region) + seed.encode() + b'\x00'
-            
-            if app_id > 0:
-                query += f"\\appid\\{app_id}".encode() + b'\x00'
-            
+            query = self._build_masterlist_query(seed, region, app_id)
             sock.sendto(query, masterlist_addr)
             
             # Sunucuları al / Receive servers
@@ -175,7 +191,7 @@ class MasterlistFetcher:
                     # Send query for next batch after processing current batch
                     if last_ip and last_port:
                         seed = f"{last_ip}:{last_port}"
-                        query = struct.pack('B', 0x31) + struct.pack('B', region) + seed.encode() + b'\x00'
+                        query = self._build_masterlist_query(seed, region, app_id)
                         sock.sendto(query, masterlist_addr)
                         
                 except socket.timeout:
