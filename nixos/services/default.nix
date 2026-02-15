@@ -3,7 +3,6 @@
   imports = [
     ./network
     ./desktop
-    ./power
     ./database
     ./hardware
   ];

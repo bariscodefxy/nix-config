@@ -9,4 +9,6 @@ pkgs: {
     };
   gnome-ext-hanabi = pkgs.callPackage ./gnome-ext-hanabi/default.nix { };
   victus-control = pkgs.callPackage ./victus-control/default.nix { };
+  xash3d-fwgs = pkgs.callPackage ./xash3d/package.nix { };
+  hlsdk = pkgs.callPackage ./hlsdk/package.nix { };
 }

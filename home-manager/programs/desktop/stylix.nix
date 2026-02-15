@@ -5,10 +5,9 @@
   ];
 
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     autoEnable = true;
     enable = true;
-    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     targets = {
       zen-browser = {
         profileNames = [ "*" ];
