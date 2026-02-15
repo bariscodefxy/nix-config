@@ -39,15 +39,6 @@
     ];
   };
 
-  fileSystems."/mnt/depo" = {
-    device = "/dev/disk/by-uuid/2ce0e529-ce8a-4bfc-a40c-e48b7e3fb4a7";
-    fsType = "btrfs";
-    options = [
-      "defaults"
-      "nofail"
-    ]; # "nofail" prevents boot hang if drive is missing
-  };
-
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

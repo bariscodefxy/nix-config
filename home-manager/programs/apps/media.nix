@@ -7,5 +7,7 @@
     helvum
     lazpaint
     gimp
+    audacity
+    lsp-plugins
   ];
 }
