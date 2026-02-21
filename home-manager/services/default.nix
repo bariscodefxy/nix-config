@@ -1,6 +1,5 @@
 { ... }:
 {
   imports = [
-    ./vicinae.nix
   ];
 }
