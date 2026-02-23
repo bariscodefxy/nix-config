@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.just-perfection
-    gnomeExtensions.arc-menu
-    gnomeExtensions.caffeine
-    gnomeExtensions.appindicator
+  home.packages = with pkgs.gnomeExtensions; [
+    blur-my-shell
+    just-perfection
+    arc-menu
+    caffeine
+    appindicator
+    dash-to-dock
+    vicinae
+    weekly-commits
   ];
 }
