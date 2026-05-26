@@ -15,5 +15,6 @@
     ffmpeg
     arduino-ide
     antigravity-fhs
+    opencode
   ];
 }

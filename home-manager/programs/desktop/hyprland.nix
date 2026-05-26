@@ -88,6 +88,5 @@
 
   home.packages = with pkgs; [
     rofi
-    hyprpaper
   ];
 }
