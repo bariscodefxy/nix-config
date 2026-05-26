@@ -1,15 +1,12 @@
-{pkgs, ...}: {
-  services.greetd = let
-    session = {
-      command = "${pkgs.niri}/bin/niri-session";
-      user = "bariscodefx";
-    };
-  in {
+{ pkgs, ... }: {
+  services.greetd = {
     enable = true;
     settings = {
       terminal.vt = 1;
-      default_session = session;
-      initial_session = session;
+      default_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "bariscodefx";
+      };
     };
   };
 }

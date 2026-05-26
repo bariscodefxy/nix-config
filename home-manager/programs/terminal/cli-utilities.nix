@@ -8,6 +8,5 @@
     unrar
     unzip
     nmap
-    gnome-terminal
   ];
 }
