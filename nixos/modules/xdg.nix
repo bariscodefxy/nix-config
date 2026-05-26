@@ -1,20 +1,24 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
 
     config = {
       common = {
-        default = ["gnome" "gtk"];
-        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-        "org.freedesktop.impl.portal.Screenshot" = "gnome";
-        "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
+        "org.freedesktop.impl.portal.Screenshot" = "hyprland";
+        "org.freedesktop.impl.portal.RemoteDesktop" = "hyprland";
       };
     };
 
     extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
     ];
   };
 }

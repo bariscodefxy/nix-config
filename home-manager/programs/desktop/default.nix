@@ -4,7 +4,7 @@
 {
   imports = [
     ./cursor.nix
-    ./extensions.nix
-    ./stylix.nix
+    ./caelestia.nix
+    ./hyprland.nix
   ];
 }

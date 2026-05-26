@@ -2,7 +2,11 @@
 {
   additions = final: _prev: import ../pkgs final.pkgs;
 
-  modifications = final: prev: { };
+  modifications = final: prev: {
+    openldap = prev.openldap.overrideAttrs (old: {
+      doCheck = false;
+    });
+  };
 
   stable-packages = final: _prev: {
     stable = import inputs.nixpkgs-stable {

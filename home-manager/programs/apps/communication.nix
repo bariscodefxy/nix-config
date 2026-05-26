@@ -4,6 +4,5 @@
     element-desktop
     teams-for-linux
     thunderbird
-    teamspeak6-client
   ];
 }

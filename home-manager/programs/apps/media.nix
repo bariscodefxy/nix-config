@@ -4,7 +4,6 @@
     obs-studio
     obs-studio-plugins.obs-vkcapture
     vlc
-    helvum
     lazpaint
     gimp
     audacity
