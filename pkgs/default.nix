@@ -8,7 +8,5 @@ pkgs: {
       inherit kernel;
     };
   victus-control = pkgs.callPackage ./victus-control/default.nix { };
-  xash3d-fwgs = pkgs.callPackage ./xash3d/package.nix { };
   hlsdk = pkgs.callPackage ./hlsdk/package.nix { };
-  rustdesk-bin = pkgs.callPackage ./rustdesk-bin/default.nix { };
 }
