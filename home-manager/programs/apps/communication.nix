@@ -5,6 +5,8 @@
     element-desktop
     teams-for-linux
     thunderbird
-    pkgs.anydesk
+    wayvnc
+    wlr-randr
+    rustdesk
   ];
 }

@@ -19,6 +19,7 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";
   };
 
+  security.rtkit.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
