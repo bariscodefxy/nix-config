@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    github-desktop
+  ];
+
   imports = [
     ./browsers
     ./media.nix

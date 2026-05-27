@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.caelestia-shell.homeManagerModules.default
@@ -14,4 +14,21 @@
       ];
     };
   };
+
+  home.packages = with pkgs; [
+    # screenshot tools
+    grim
+    slurp
+    swappy
+    wl-clipboard
+    libnotify
+
+    # screen recording
+    gpu-screen-recorder
+    app2unit
+
+    # clipboard utility
+    cliphist
+    fuzzel
+  ];
 }

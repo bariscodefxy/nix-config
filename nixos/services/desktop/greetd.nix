@@ -4,7 +4,7 @@
     settings = {
       terminal.vt = 1;
       default_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.hyprland}/bin/start-hyprland";
         user = "bariscodefx";
       };
     };

@@ -46,11 +46,19 @@
 
       $mainMod = SUPER
 
+      bindm = $mainMod, mouse:272, movewindow
+      bindm = $mainMod, mouse:273, resizewindow
+
+      bind = $mainMod, SPACE, exec, caelestia-shell ipc call drawers toggle launcher
+      bind = $mainMod, B, exec, helium
+      bind = $mainMod, E, exec, ${pkgs.thunar}/bin/thunar
       bind = $mainMod, Q, exec, ${pkgs.alacritty}/bin/alacritty
       bind = $mainMod, C, killactive,
       bind = $mainMod, M, exit,
+      bind = $mainMod, F, fullscreen, 0
+      bind = $mainMod SHIFT, F, fullscreen, 1
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, R, exec, ${pkgs.rofi}/bin/rofi -show drun
+
       bind = $mainMod, P, layoutmsg, pseudotile
       bind = $mainMod, J, layoutmsg, togglesplit
 
@@ -85,8 +93,4 @@
       bind = $mainMod, mouse_up, workspace, e-1
     '';
   };
-
-  home.packages = with pkgs; [
-    rofi
-  ];
 }

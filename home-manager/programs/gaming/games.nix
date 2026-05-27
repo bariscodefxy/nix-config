@@ -10,7 +10,6 @@
     lunar-client
     inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
     superTuxKart
-    xash3d-fwgs
     hlsdk
   ];
 }
