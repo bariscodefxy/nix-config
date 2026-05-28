@@ -23,6 +23,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:FlameFlag/nixcord";
+    hp-wmi-control = {
+      url = "github:TUXOV/hp-wmi-fan-and-backlight-control";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +34,7 @@
       self,
       nixpkgs,
       home-manager,
+      hp-wmi-control,
       ...
     }@inputs:
     let
@@ -57,6 +62,12 @@
           };
           modules = [
             ./nixos/configuration.nix
+            hp-wmi-control.nixosModules.default
+            {
+              hardware.hp-wmi-control = {
+                enable = true;
+              };
+            }
           ];
         };
       };

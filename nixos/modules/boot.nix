@@ -7,7 +7,6 @@
   ];
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback
-    (pkgs.hp-wmi-fan-and-backlight-control { kernel = config.boot.kernelPackages.kernel; })
   ];
 
   boot.loader = {
