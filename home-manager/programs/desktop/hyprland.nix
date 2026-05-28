@@ -91,6 +91,18 @@
 
       bind = $mainMod, mouse_down, workspace, e+1
       bind = $mainMod, mouse_up, workspace, e-1
+
+      bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
+      bind = SHIFT, Print, exec, grim - | swappy -f -
+      bind = $mainMod, Print, exec, grim -g "$(slurp)" - | wl-copy
+
+      bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+      bind = , XF86MonBrightnessUp, exec, brightnessctl set +5%
+
+      bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bind = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
     '';
   };
 }
