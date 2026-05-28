@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> nix-config</h1>
+  <h1>nix-config</h1>
   <p><strong>Declarative NixOS + home-manager flake for HP Victus · Hyprland · Caelestia</strong></p>
 
   <p>
@@ -13,35 +13,15 @@
 
 ---
 
-##  Gallery
+## Gallery
 
 > Screenshots coming soon.
 
-| Desktop | Launcher | Spotify |
-|---------|----------|---------|
-| ![][screenshot-desktop] | ![][screenshot-launcher] | ![][screenshot-spotify] |
-
-<!--
-TODO: Add real screenshots
-Replace these with actual image URLs
-[screenshot-desktop]: https://
-[screenshot-launcher]: https://
-[screenshot-spotify]: https://
--->
-
 ---
 
-##  Features
+## Features
 
-###  System
-
-- **NixOS** on `nixos-unstable` with **home-manager**
-- **Dual nixpkgs** — `nixos-unstable` for freshness + `nixos-25.11` pinned for stability
-- **NixOS specialisations** — boot-time profiles for `sing-box` (VPN) and `zapret` (DPI bypass)
-- **Automatic GC** — daily garbage collection, deletes after 3 days
-- **Zram swap** — compressed in-memory swap for performance
-
-###  Desktop
+### 🖥️ Desktop
 
 - **Hyprland** — Wayland compositor with gradient borders, blur, and smooth animations
 - **Caelestia Shell** — Quickshell-based panel, launcher, and notification daemon (systemd-integrated)
@@ -49,7 +29,15 @@ Replace these with actual image URLs
 - **XDG Portal** configured for Hyprland screen cast, screenshot, and remote desktop
 - **Apple cursors**, GTK theming with Noto Sans + Adwaita icons
 
-###  Development
+### ⚙️ System
+
+- **NixOS** on `nixos-unstable` with **home-manager**
+- **Dual nixpkgs** — `nixos-unstable` for freshness + `nixos-25.11` pinned for stability
+- **NixOS specialisations** — boot-time profiles for `sing-box` (VPN) and `zapret` (DPI bypass)
+- **Automatic GC** — daily garbage collection, deletes after 3 days
+- **Zram swap** — compressed in-memory swap for performance
+
+### 💻 Development
 
 | Tool | Purpose |
 |------|---------|
@@ -64,13 +52,13 @@ Replace these with actual image URLs
 | **nixd + nixfmt** | Nix language tooling |
 | **direnv + git** | Dev environment automation |
 
-###  Web Stack
+### 🌐 Web Stack
 
 - **nginx** + **php-fpm** hosting **phpMyAdmin**
 - **MariaDB** database server
 - Full LAMP stack declaratively configured
 
-###  Gaming
+### 🎮 Gaming
 
 - **Steam** with `programs.steam`
 - **PrismLauncher** — Minecraft (cracked variant)
@@ -78,7 +66,7 @@ Replace these with actual image URLs
 - **OBS Studio** + vkcapture for game recording
 - **lunar-client**, **SuperTuxKart**, **Half-Life SDK**
 
-###  Media & Communication
+### 🎵 Media & Communication
 
 - **Vesktop** (Discord) with **nixcord** — declarative Discord modding
 - **Spicetify** — themed Spotify with adblock, hide podcasts, shuffle+
@@ -87,7 +75,7 @@ Replace these with actual image URLs
 - **mpv**, **VLC** — video players
 - **GIMP**, **Audacity** — creative tools
 
-###  Network & Security
+### 🌍 Network & Security
 
 - **sing-box** — TUN-based VPN client with auto gateway detection (NixOS specialisation)
 - **zapret** — DPI bypass tool (NixOS specialisation)
@@ -96,7 +84,7 @@ Replace these with actual image URLs
 - **OpenSSH** — key-based SSH server
 - **Firewall** — strict with selective port opening
 
-###  Hardware Support (HP Victus)
+### 💻 Hardware Support (HP Victus)
 
 ```nix
 # Custom fan & backlight control kernel module
@@ -111,7 +99,7 @@ services.victus-control.enable = true;
 
 ---
 
-##  Structure
+## Structure
 
 ```
 nix-config/
@@ -182,7 +170,7 @@ nix-config/
 
 ---
 
-##  Key Bindings
+## Key Bindings
 
 | Keys | Action |
 |------|--------|
@@ -209,7 +197,7 @@ nix-config/
 
 ---
 
-##  Quick Start
+## Quick Start
 
 ```bash
 # Clone
@@ -227,7 +215,7 @@ home-manager switch --flake .#bariscodefx@victus
 
 ---
 
-##  Specialisations
+## Specialisations
 
 Boot into specialized profiles at GRUB:
 
@@ -244,7 +232,7 @@ sudo nix-env --set-config specialisation singbox
 
 ---
 
-##  Custom Packages
+## Custom Packages
 
 | Package | Description |
 |---------|-------------|
@@ -254,7 +242,7 @@ sudo nix-env --set-config specialisation singbox
 
 ---
 
-##  Flake Inputs
+## Flake Inputs
 
 | Input | Source | Purpose |
 |-------|--------|---------|
@@ -270,13 +258,13 @@ sudo nix-env --set-config specialisation singbox
 
 ---
 
-##  License
+## License
 
 This project is licensed under the **GNU General Public License v3.0** — see [LICENSE](./LICENSE).
 
 ---
 
-##  Credits
+## Credits
 
 - [NixOS](https://nixos.org/) & [home-manager](https://github.com/nix-community/home-manager)
 - [Hyprland](https://hyprland.org/) — the compositor
