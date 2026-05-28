@@ -119,6 +119,26 @@
         "type": "github"
       }
     },
+    "hp-wmi-control": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772703387,
+        "narHash": "sha256-t/1cJ2dq6rpM3w4bomrpvMTB8PVyAxkvxPEw8hLsVm0=",
+        "owner": "TUXOV",
+        "repo": "hp-wmi-fan-and-backlight-control",
+        "rev": "eee2d0a06d01167c0faddf1d7cf30ad4c0f195fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TUXOV",
+        "repo": "hp-wmi-fan-and-backlight-control",
+        "type": "github"
+      }
+    },
     "libnbtplusplus": {
       "flake": false,
       "locked": {
@@ -326,6 +346,7 @@
         "caelestia-shell": "caelestia-shell",
         "helium": "helium",
         "home-manager": "home-manager",
+        "hp-wmi-control": "hp-wmi-control",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_2",
