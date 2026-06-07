@@ -7,7 +7,8 @@
       exec-once = caelestia-shell
 
       input {
-        kb_layout = tr
+        kb_layout = tr,us
+        kb_options = grp:caps_toggle
         follow_mouse = 1
         touchpad {
           natural_scroll = true

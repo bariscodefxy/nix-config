@@ -5,6 +5,7 @@
     noto-fonts-color-emoji
     noto-fonts-cjk-sans
     dejavu_fonts
+    cantarell-fonts
     nerd-fonts.jetbrains-mono
   ];
 
@@ -12,7 +13,7 @@
     enable = true;
     defaultFonts = {
       monospace = [ "JetBrainsMono Nerd Font" "Noto Sans Mono" "DejaVu Sans Mono" ];
-      sansSerif = [ "Noto Sans" "DejaVu Sans" ];
+      sansSerif = [ "Cantarell" "Noto Sans" "DejaVu Sans" ];
       serif = [ "Noto Serif" "DejaVu Serif" ];
     };
     hinting = {

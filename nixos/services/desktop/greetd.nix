@@ -2,10 +2,9 @@
   services.greetd = {
     enable = true;
     settings = {
-      terminal.vt = 1;
       default_session = {
-        command = "${pkgs.hyprland}/bin/hyprland";
-        user = "bariscodefx";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+        user = "greeter";
       };
     };
   };

@@ -4,7 +4,6 @@
     bottles
     steam
     badvpn
-    v2rayn
     protonup-qt
     stdenv.cc
     gnumake
