@@ -8,14 +8,14 @@
   ];
 
   specialisation = {
-    "singbox" = {
+    "xray-tproxy" = {
       inheritParentConfig = true;
       configuration =
         { config, pkgs, ... }:
         {
-          system.nixos.tags = [ "singbox" ];
+          system.nixos.tags = [ "xray-tproxy" ];
           imports = [
-            ./network/singbox.nix
+            ./network/xray-tproxy.nix
           ];
         };
     };

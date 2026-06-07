@@ -5,5 +5,6 @@
     termius
     qbittorrent
     realvnc-vnc-viewer
+    remmina
   ];
 }

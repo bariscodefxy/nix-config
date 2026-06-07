@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+
   networking = {
     hostName = "victus";
     networkmanager = {
@@ -7,6 +9,7 @@
       plugins = with pkgs; [
         networkmanager-openconnect
       ];
+
     };
   };
 
