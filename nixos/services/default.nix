@@ -22,13 +22,15 @@
     "zapret" = {
       inheritParentConfig = true;
       configuration =
-        { config, pkgs, ... }:
+        { config, pkgs, lib, ... }:
         {
           system.nixos.tags = [ "zapret" ];
           imports = [
             ./network/dnscrypt.nix
             ./network/zapret.nix
           ];
+          services.dnsmasq.enable = lib.mkForce false;
+          networking.nameservers = lib.mkForce [ "127.0.0.1" "::1" ];
         };
     };
   };
