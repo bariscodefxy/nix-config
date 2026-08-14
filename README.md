@@ -201,7 +201,7 @@ nix-config/
 
 ```bash
 # Clone
-git clone https://github.com/bariscodefx/nix-config
+git clone https://github.com/bariscodefxy/nix-config
 cd nix-config
 
 # One-command install from the Live ISO (WARNING: wipes the entire disk)
