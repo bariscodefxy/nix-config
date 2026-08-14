@@ -108,7 +108,7 @@ nix-config/
 │
 ├── nixos/
 │   ├── configuration.nix       # System entry point
-│   ├── hardware-configuration.nix
+│   ├── disko.nix               # Disk partitioning + hardware detection
 │   ├── modules/
 │   │   ├── desktop.nix         # Hyprland, env vars, system packages
 │   │   ├── graphics.nix        # NVIDIA + Intel PRIME
@@ -204,14 +204,22 @@ nix-config/
 git clone https://github.com/bariscodefx/nix-config
 cd nix-config
 
+# One-command install from the Live ISO (WARNING: wipes the entire disk)
+./install.sh
+
+# After reboot, set a password for your user
+sudo passwd bariscodefx
+```
+
+> **Note**: Hardware-specific entries like the disk device in `disko.nix` may need adjustment for non-Victus laptops.
+
+```bash
 # Build & switch system
 sudo nixos-rebuild switch --flake .#victus
 
 # Build & switch home-manager
 home-manager switch --flake .#bariscodefx@victus
 ```
-
-> **Note**: Hardware-specific entries like `hardware-configuration.nix` may need adjustment for non-Victus laptops.
 
 ---
 
@@ -255,6 +263,7 @@ sudo nix-env --set-config specialisation singbox
 | `prismlauncher` | `Diegiwg/PrismLauncher-Cracked` | Minecraft launcher |
 | `caelestia-shell` | `caelestia-dots/shell` | Desktop shell |
 | `nixcord` | `FlameFlag/nixcord` | Discord modding |
+| `disko` | `nix-community/disko` | Declarative disk partitioning |
 
 ---
 

@@ -23,6 +23,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:FlameFlag/nixcord";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hp-wmi-control = {
       url = "github:TUXOV/hp-wmi-fan-and-backlight-control";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +38,7 @@
       self,
       nixpkgs,
       home-manager,
+      disko,
       hp-wmi-control,
       ...
     }@inputs:
@@ -62,6 +67,7 @@
           };
           modules = [
             ./nixos/configuration.nix
+            disko.nixosModules.disko
             hp-wmi-control.nixosModules.default
             {
               hardware.hp-wmi-control = {
