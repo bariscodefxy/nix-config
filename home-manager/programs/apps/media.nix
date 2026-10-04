@@ -6,5 +6,6 @@
     mpv
     audacity
     lsp-plugins
+    pear-desktop
   ];
 }
