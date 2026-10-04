@@ -5,13 +5,19 @@
     ./desktop
     ./database
     ./hardware
+    ./system
   ];
 
   specialisation = {
     "zapret" = {
       inheritParentConfig = true;
       configuration =
-        { config, pkgs, lib, ... }:
+        {
+          config,
+          pkgs,
+          lib,
+          ...
+        }:
         {
           system.nixos.tags = [ "zapret" ];
           imports = [
@@ -19,7 +25,10 @@
             ./network/zapret.nix
           ];
           services.dnsmasq.enable = lib.mkForce false;
-          networking.nameservers = lib.mkForce [ "127.0.0.1" "::1" ];
+          networking.nameservers = lib.mkForce [
+            "127.0.0.1"
+            "::1"
+          ];
         };
     };
   };
