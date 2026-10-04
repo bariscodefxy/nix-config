@@ -2,6 +2,6 @@
 {
   imports = [
     ./tor.nix
-    ./helium.nix
+    ./chromium.nix
   ];
 }

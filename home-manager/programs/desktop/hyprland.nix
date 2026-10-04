@@ -51,7 +51,7 @@
       bindm = $mainMod, mouse:273, resizewindow
 
       bind = $mainMod, SPACE, exec, caelestia-shell ipc call drawers toggle launcher
-      bind = $mainMod, B, exec, helium
+      bind = $mainMod, B, exec, chromium
       bind = $mainMod, E, exec, ${pkgs.thunar}/bin/thunar
       bind = $mainMod, Q, exec, ${pkgs.alacritty}/bin/alacritty
       bind = $mainMod, C, killactive,
