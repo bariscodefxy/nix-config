@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   users.users = {
-    bariscodefx = {
+    baris = {
       isNormalUser = true;
       extraGroups = [
         "wheel"

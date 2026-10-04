@@ -12,8 +12,8 @@
         postBuffer = 157286400;
       };
       user = {
-        name = "bariscodefx";
-        email = "root@bariscodefx.tr";
+        name = "baris";
+        email = "baris@bariscodefx.tr";
       };
     };
   };

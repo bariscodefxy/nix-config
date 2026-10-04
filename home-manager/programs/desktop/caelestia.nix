@@ -10,7 +10,7 @@
       enable = true;
       target = "hyprland-session.target";
       environment = [
-        "CAELESTIA_WALLPAPERS_DIR=/home/bariscodefx/Pictures/Wallpapers"
+        "CAELESTIA_WALLPAPERS_DIR=/home/baris/Pictures/Wallpapers"
       ];
     };
   };

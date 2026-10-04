@@ -1,8 +1,8 @@
 { ... }:
 {
   home = {
-    username = "bariscodefx";
-    homeDirectory = "/home/bariscodefx";
+    username = "baris";
+    homeDirectory = "/home/baris";
     enableNixpkgsReleaseCheck = false;
     stateVersion = "26.05";
   };
