@@ -79,7 +79,7 @@
       };
 
       homeConfigurations = {
-        "bariscodefx@victus" = home-manager.lib.homeManagerConfiguration {
+        "baris@victus" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             config = {

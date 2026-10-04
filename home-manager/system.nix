@@ -2,6 +2,8 @@
 {
   xdg.enable = true;
   xdg.systemDirs.data = [ "${config.xdg.dataHome}/nix-desktop-files" ];
+#  xdg.configFile."mimeapps-list".force = true;
+  
 
   home.activation.linkDesktopApplications = {
     after = [
