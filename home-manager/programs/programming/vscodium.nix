@@ -15,7 +15,7 @@
         ziglang.vscode-zig
         devsense.phptools-vscode
         devsense.composer-php-vscode
-        rooveterinaryinc.roo-cline
+        continue.continue
         svelte.svelte-vscode
         aswinkumar863.smarty-template-support
       ];
@@ -26,12 +26,6 @@
         "git.confirmSync" = false;
         "git.autofetch" = true;
         "explorer.confirmDelete" = false;
-        "roo-cline.allowedCommands" = [
-          "git log"
-          "git diff"
-          "git show"
-        ];
-        "roo-cline.deniedCommands" = [ ];
       };
     };
   };
