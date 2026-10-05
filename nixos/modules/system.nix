@@ -27,6 +27,8 @@
   system.nixos.tags = [ "default" ];
 
   nix.settings.cores = 4;
+  
+  nix.settings.trusted-users = [ "root" "baris" ];
 
   zramSwap.enable = true;
 }

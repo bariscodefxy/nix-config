@@ -8,17 +8,18 @@
   gtk4,
   wrapGAppsHook4,
   systemd,
+  makeWrapper
 }:
 
 stdenv.mkDerivation rec {
   pname = "victus-control";
-  version = "1.0";
+  version = "1.2.0";
 
   src = fetchFromGitHub {
-    owner = "Vilez0";
+    owner = "Batuhan4";
     repo = "victus-control";
-    rev = "3cf7d22921a24adb7fe6e806c912679ef81f8c77";
-    sha256 = "sha256-vpRbDA8gfCDx9NJX4EVqPWa49RAU73ZpHu4Y14C6CvQ=";
+    rev = "5aadf66ee88f5e42e8f847154dd491d503d22c01";
+    sha256 = "sha256-dggZwK0ngH8l7QlvgpsOFxZ09AUp2OSZIC4+lptG9KQ=";
   };
 
   nativeBuildInputs = [
@@ -26,6 +27,7 @@ stdenv.mkDerivation rec {
     ninja
     pkg-config
     wrapGAppsHook4
+    makeWrapper
   ];
 
   buildInputs = [
@@ -34,18 +36,27 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = ''
-    substituteInPlace backend/meson.build \
-      --replace-fail "install_dir: '/etc/systemd/system'" \
-                     "install_dir: join_paths(get_option('prefix'), 'lib', 'systemd', 'system')"
+    find . -type f -name "meson.build" -exec sed -i \
+      -e "s|'/usr/|'$out/|g" \
+      -e "s|'/etc/|'$out/etc/|g" {} +
+  '';
 
-    substituteInPlace frontend/meson.build \
-      --replace-fail "install_dir: '/usr/share/applications'" \
-                     "install_dir: join_paths(get_option('prefix'), 'share', 'applications')"
+  postInstall = ''
+    # 1. Shell betiklerindeki standart yolları (örneğin #!/bin/bash) Nix store yollarıyla değiştirir
+    if [ -d "$out/bin" ]; then
+      patchShebangs $out/bin
+    fi
+
+    # 2. Servis uygulamasına nvidia-smi ve kendi betiklerini bulabilmesi için PATH verir
+    # - $out/bin: set-fan-speed.sh gibi paketin kendi araçları için
+    # - /run/current-system/sw/bin: nvidia-smi ve diğer sistem komutları için
+    wrapProgram $out/bin/victus-backend \
+      --prefix PATH : "$out/bin:/run/current-system/sw/bin:/run/wrappers/bin"
   '';
 
   meta = with lib; {
-    description = "Fan control and RGB keyboard settings for HP Victus and Omen laptops";
-    homepage = "https://github.com/Vilez0/victus-control";
+    description = "Linux fan control and keyboard lighting for HP Victus/Omen with Arch/Fedora installers and GNOME Shell support";
+    homepage = "https://github.com/Batuhan4/victus-control";
     license = licenses.gpl3;
     maintainers = [ ];
     platforms = platforms.linux;

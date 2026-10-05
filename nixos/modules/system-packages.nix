@@ -7,7 +7,7 @@
     protonup-qt
     stdenv.cc
     gnumake
-    victus-control
+    #victus-control
     gtk3
   ];
 }

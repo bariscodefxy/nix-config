@@ -15,7 +15,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,8 +22,8 @@
     prismlauncher = {
       url = "github:Diegiwg/PrismLauncher-Cracked";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:FlameFlag/nixcord";
@@ -73,12 +72,6 @@
           modules = [
             ./nixos/configuration.nix
             disko.nixosModules.disko
-            hp-wmi-control.nixosModules.default
-            {
-              hardware.hp-wmi-control = {
-                enable = true;
-              };
-            }
           ];
         };
       };

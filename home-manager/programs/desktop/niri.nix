@@ -111,11 +111,13 @@
         XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
       }
 
-      animations {
-        // Keep the wallpaper static: no slide when switching workspaces.
-        workspace-switch {
-          off
-        }
+      // Keep the wallpaper static between workspaces (awww draws on the
+      // background layer; place it within the backdrop). Window switch
+      // animations stay enabled.
+      layer-rule {
+        match namespace="^awww-daemon$"
+
+        place-within-backdrop true
       }
     '';
   };

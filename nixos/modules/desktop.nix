@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver
     intel-vaapi-driver
   ];
@@ -33,7 +33,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.caelestia-shell.packages.${pkgs.system}.with-cli
     swaylock
     xwayland-satellite
     polkit_gnome
