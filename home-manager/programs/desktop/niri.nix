@@ -110,6 +110,13 @@
         XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
         XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
       }
+
+      animations {
+        // Keep the wallpaper static: no slide when switching workspaces.
+        workspace-switch {
+          off
+        }
+      }
     '';
   };
 }
