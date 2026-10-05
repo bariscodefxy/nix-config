@@ -3,8 +3,10 @@ on:
   pull_request:
   push:
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
+    env:
+      NIXPKGS_ALLOW_UNFREE: 1
     steps:
     - uses: actions/checkout@v5
     - uses: cachix/install-nix-action@v31
@@ -13,10 +15,10 @@ jobs:
         extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
 
     - name: Flake Check
-      run: nix flake check -L
+      run: nix flake check -L --impure
 
     - name: Build NixOS
-      run: nix build .#nixosConfigurations.victus.config.system.build.toplevel -L
+      run: nix build .#nixosConfigurations.victus.config.system.build.toplevel -L --impure
 
     - name: Build Home Manager
-      run: nix build .#homeConfigurations.\"baris@victus\".activationPackage -L
+      run: nix build .#homeConfigurations.\"baris@victus\".activationPackage -L --impure
