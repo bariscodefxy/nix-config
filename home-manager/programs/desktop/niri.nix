@@ -65,6 +65,8 @@
         Mod+B { spawn "chromium"; }
         Mod+E { spawn "${pkgs.thunar}/bin/thunar"; }
         Mod+Q { spawn "${pkgs.alacritty}/bin/alacritty"; }
+        // Spotlight: open the shell launcher (macOS Cmd+Space behavior).
+        Mod+Space { spawn-sh "quickshell ipc call launcher spotlight"; }
         Mod+C repeat=false { close-window; }
         // Hyprland'deki gibi anında çıkış (onay penceresiz).
         Mod+M { quit skip-confirmation=true; }
