@@ -2,6 +2,7 @@
 {
   imports = [
     ./browsers
+    ./ai.nix
     ./media.nix
     ./communication.nix
     ./productivity.nix
