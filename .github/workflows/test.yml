@@ -11,3 +11,12 @@ jobs:
       with:
         enable_kvm: true
         extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
+
+    - name: Flake Check
+      run: nix flake check -L
+
+    - name: Build NixOS
+      run: nix build .#nixosConfigurations.victus.config.system.build.toplevel -L
+
+    - name: Build Home Manager
+      run: nix build .#homeConfigurations.\"baris@victus\".activationPackage -L
