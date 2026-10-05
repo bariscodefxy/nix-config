@@ -7,6 +7,7 @@
     dejavu_fonts
     cantarell-fonts
     nerd-fonts.jetbrains-mono
+    material-symbols
   ];
 
   fonts.fontconfig = {
