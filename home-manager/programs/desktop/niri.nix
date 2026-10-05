@@ -33,11 +33,21 @@
         }
 
         border {
-          width 2
-          active-gradient from="#33ccffee" to="#00ff99ee" angle=45
-          inactive-color "#595959aa"
+          off
+        }
+
+        shadow {
+          on
+          softness 30
+          spread 5
+          offset x=0 y=5
+          draw-behind-window true
+          color "#00000070"
         }
       }
+
+      // CSD gölgelerini kaldır, Niri gölgesi köşe yuvarlamayı takip etsin.
+      prefer-no-csd
 
       // rounding 10 karşılığı.
       window-rule {

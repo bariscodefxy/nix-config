@@ -7,6 +7,7 @@
         "wheel"
         "docker"
         "networkmanager"
+        "victus"
       ];
       shell = pkgs.zsh;
     };

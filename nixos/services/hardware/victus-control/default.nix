@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    # ./victus-control-module.nix
+    ./victus-control-module.nix
   ];
 
-  # services.victus-control.enable = true;
+  services.victus-control.enable = true;
 }
