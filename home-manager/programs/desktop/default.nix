@@ -5,7 +5,7 @@
   imports = [
     ./cursor.nix
     ./caelestia.nix
-    ./hyprland.nix
+    ./niri.nix
     ./gtk.nix
     ./session.nix
   ];

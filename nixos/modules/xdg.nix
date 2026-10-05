@@ -7,17 +7,20 @@
     config = {
       common = {
         default = [
-          "hyprland"
+          "gnome"
           "gtk"
         ];
-        "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
-        "org.freedesktop.impl.portal.Screenshot" = "hyprland";
-        "org.freedesktop.impl.portal.RemoteDesktop" = "hyprland";
+        # gnome portali nautilus ister, bizde thunar var: dosya seçici gtk'dan.
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+        "org.freedesktop.impl.portal.Screenshot" = "gnome";
+        "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
+        "org.freedesktop.impl.portal.Settings" = "gnome";
       };
     };
 
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];
   };
