@@ -7,5 +7,6 @@
     ./caelestia.nix
     ./hyprland.nix
     ./gtk.nix
+    ./session.nix
   ];
 }
