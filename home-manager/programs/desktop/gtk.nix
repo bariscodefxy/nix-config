@@ -6,8 +6,8 @@
       name = "Noto Sans 10";
     };
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
+      name = "MacTahoe-dark";
+      package = pkgs.mactahoe-icon-theme;
     };
     theme = {
       name = "Adwaita-dark";
@@ -27,4 +27,7 @@
       gtk-theme = "Adwaita-dark";
     };
   };
+
+  # Fallback for MacTahoe's Inherits=hicolor,breeze chain.
+  home.packages = [ pkgs.kdePackages.breeze-icons ];
 }

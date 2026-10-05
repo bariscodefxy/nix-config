@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     owner = "TUXOV";
     repo = "hp-wmi-fan-and-backlight-control";
     rev = "2816846199328da03f88dd8f3d1b852e5b999058";
-    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    sha256 = "sha256-HjJM5ZXeegephhKwPXieUIy587iCPYVrVQAxl6y9GFE=";
   };
 
   postPatch = ''
