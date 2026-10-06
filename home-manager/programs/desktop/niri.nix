@@ -61,6 +61,13 @@
       // Polkit yetkilendirme pencereleri için.
       spawn-at-startup "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
 
+      // Cam efekti: hafif frost. Varsayılan (passes 3, offset 3) sütümsü
+      // beyaz yapıyor; düşük değer = daha berrak cam + daha ucuz GPU.
+      blur {
+        passes 2
+        offset 1.5
+      }
+
       binds {
         Mod+B { spawn "chromium"; }
         Mod+E { spawn "${pkgs.thunar}/bin/thunar"; }
