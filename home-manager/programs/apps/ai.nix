@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    lmstudio
+    inputs.llm-agents.packages.${pkgs.system}.orca
+    inputs.llm-agents.packages.${pkgs.system}.opencode2
+    inputs.llm-agents.packages.${pkgs.system}.opencode2-desktop
   ];
 }

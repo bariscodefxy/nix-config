@@ -9,6 +9,5 @@
     php84Packages.composer
     nodejs_24
     ffmpeg
-    opencode2
   ];
 }
