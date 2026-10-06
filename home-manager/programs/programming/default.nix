@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./vscodium.nix
+    ./apps.nix
     ./development-tools.nix
   ];
 }
