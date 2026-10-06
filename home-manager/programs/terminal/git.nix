@@ -14,6 +14,10 @@
       user = {
         name = "baris";
         email = "baris@bariscodefx.tr";
+        signingkey = "43FEAB6CBC471F07";
+      };
+      commit = {
+        gpgsign = true;
       };
     };
   };
