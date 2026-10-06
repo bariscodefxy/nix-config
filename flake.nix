@@ -22,6 +22,10 @@
     prismlauncher = {
       url = "github:Diegiwg/PrismLauncher-Cracked";
     };
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +33,14 @@
     nixcord.url = "github:FlameFlag/nixcord";
     disko = {
       url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    macoblox = {
+      url = "path:/home/baris/MacOBlox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -55,6 +67,8 @@
     {
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      # MacOBlox dev shell (local checkout; flake lives in that repo).
+      devShells.x86_64-linux.macoblox = inputs.macoblox.devShells.x86_64-linux.default;
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
