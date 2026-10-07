@@ -3,6 +3,7 @@
   imports = [
     ./browsers
     ./ai.nix
+    ./opencode.nix
     ./media.nix
     ./communication.nix
     ./productivity.nix
