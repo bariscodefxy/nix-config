@@ -3,25 +3,28 @@
   programs.rclone = {
     enable = true;
     remotes = {
-      drive = {
+      gdrive = {
         config = {
           type = "drive";
+          scope = "drive";
         };
         secrets = {
-          # OAuth token JSON (rclone authorize çıktısı), 600 izinli dosya.
-          token = "${config.home.homeDirectory}/.config/rclone/secrets/drive-token";
+          # Git'e düşmemesi için kimlik bilgileri dosyadan enjekte ediliyor.
+          client_id = "${config.home.homeDirectory}/.config/rclone/secrets/gdrive-client-id";
+          client_secret = "${config.home.homeDirectory}/.config/rclone/secrets/gdrive-client-secret";
+          # OAuth token JSON (rclone authorize çıktısı).
+          token = "${config.home.homeDirectory}/.config/rclone/secrets/gdrive-token";
         };
       };
-      encrypted = {
+      gcrypt = {
         config = {
           type = "crypt";
-          remote = "drive:/encrypted";
-          filename_encryption = "standard";
-          directory_name_encryption = true;
+          remote = "gdrive:GizliDosyalar";
         };
         secrets = {
-          # Crypt parolası (düz metin, rclone enjeksiyonda obscure eder).
-          password = "${config.home.homeDirectory}/.config/rclone/secrets/crypt-password";
+          # Crypt parolaları (düz metin, rclone enjeksiyonda obscure eder).
+          password = "${config.home.homeDirectory}/.config/rclone/secrets/gcrypt-password";
+          password2 = "${config.home.homeDirectory}/.config/rclone/secrets/gcrypt-password2";
         };
       };
     };
