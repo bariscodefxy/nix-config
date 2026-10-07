@@ -1,7 +1,5 @@
 { ... }:
 {
-  # opencode (CLI + desktop aynı global config'i okur): GDrive mount'u
-  # ajanlardan gizle. Kurallar "son eşleşen kazanır" çalışır.
   xdg.configFile."opencode/opencode.json".text = builtins.toJSON {
     "$schema" = "https://opencode.ai/config.json";
     permission = {
@@ -37,6 +35,5 @@
     };
   };
 
-  # ripgrep tabanlı araçlar home altından tarama yaparsa GDrive'ı atlar.
   home.file.".ignore".text = "GDrive/\n";
 }
