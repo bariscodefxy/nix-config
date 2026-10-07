@@ -26,6 +26,16 @@
           password = "${config.home.homeDirectory}/.config/rclone/secrets/gcrypt-password";
           password2 = "${config.home.homeDirectory}/.config/rclone/secrets/gcrypt-password2";
         };
+        mounts = {
+          "" = {
+            enable = true;
+            mountPoint = "${config.home.homeDirectory}/GDrive";
+            options = {
+              dir-cache-time = "5000h";
+              poll-interval = "30s";
+            };
+          };
+        };
       };
     };
   };
