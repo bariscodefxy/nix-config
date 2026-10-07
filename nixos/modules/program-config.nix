@@ -2,6 +2,11 @@
 {
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
+  # Darling (MacOBlox) loads the host GL stack with dlopen("libGL.so.1")
+  # at runtime; without this there are no EGL configs and every GL
+  # context fails. Vendor discovery (nvidia/mesa JSONs, DRI drivers)
+  # already resolves through /run/opengl-driver.
+  programs.nix-ld.libraries = with pkgs; [ libglvnd ];
   programs.dconf.enable = true;
 
   # Otomatik offload: masaüstü Intel'de kalır, Steam ve altındaki

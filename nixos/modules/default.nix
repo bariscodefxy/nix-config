@@ -3,6 +3,7 @@
   imports = [
     ./bluetooth.nix
     ./boot.nix
+    ./darling.nix
     ./desktop.nix
     ./fonts.nix
     ./garbage.nix

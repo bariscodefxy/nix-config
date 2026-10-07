@@ -39,6 +39,12 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # No `follows`: the prebuilt Darling in its cache was built against
+    # its locked nixpkgs; following ours would change store paths and
+    # force a local source build.
+    darling-nix = {
+      url = "github:bariscodefxy/darling-nix";
+    };
     macoblox = {
       url = "path:/home/baris/MacOBlox";
       inputs.nixpkgs.follows = "nixpkgs";
