@@ -6,5 +6,6 @@
     ./mullvad.nix
     ./avahi.nix
     ./dnsmasq.nix
+    ./tailscale.nix
   ];
 }

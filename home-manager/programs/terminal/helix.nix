@@ -42,7 +42,7 @@
 
     extraPackages = with pkgs; [
       nixd
-      nixfmt-rfc-style
+      nixfmt
       phpactor
       svelte-language-server
       prettier

@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     nixd
-    nixfmt-rfc-style
+    nixfmt
     nerd-fonts.jetbrains-mono
     claude-code
     php

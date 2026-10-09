@@ -1,35 +1,22 @@
 { pkgs, ... }:
 {
+  # Theme (gtk-theme, icon-theme, dark preference) is NOT managed here:
+  # the shell owns it at runtime via System Settings → Appearance.
+  # Only font and cursor stay declarative.
   gtk = {
     enable = true;
     font = {
       name = "SF Pro Display 10";
     };
-    iconTheme = {
-      name = "WhiteSur-dark";
-      package = pkgs.whitesur-icon-theme;
-    };
-    theme = {
-      name = "WhiteSur-Dark";
-      package = pkgs.whitesur-gtk-theme;
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-theme = "WhiteSur-Dark";
-    };
-  };
-
-  # Fallback for WhiteSur-dark's Inherits=hicolor,breeze chain.
-  home.packages = [ pkgs.kdePackages.breeze-icons ];
+  # Theme FILES only, no selection: the shell picks WhiteSur-Dark/Light at
+  # runtime via System Settings → Appearance (settings.ini + dconf).
+  home.packages = [
+    pkgs.whitesur-gtk-theme
+    pkgs.whitesur-icon-theme
+    pkgs.kdePackages.breeze-icons
+  ];
 
   # gtk modülü gtk.css üretmiyor (gtk3: sadece extraCss doluyken,
   # bu sürümde gtk4 için de tema importu yok). Eskiden elle yazılmış

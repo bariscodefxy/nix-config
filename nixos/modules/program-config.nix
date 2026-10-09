@@ -2,11 +2,21 @@
 {
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
-  # Darling (MacOBlox) loads the host GL stack with dlopen("libGL.so.1")
+  # Darling (MacOBlox) loads the host GL stack with dlopen("libEGL.so.1")
   # at runtime; without this there are no EGL configs and every GL
   # context fails. Vendor discovery (nvidia/mesa JSONs, DRI drivers)
   # already resolves through /run/opengl-driver.
-  programs.nix-ld.libraries = with pkgs; [ libglvnd ];
+  # Minecraft 26.x gömülü SDL3'ü Wayland backend'i dlopen ile açar
+  # (libwayland-client, libdecor, libxkbcommon...). Bunlar yoksa
+  # SDL_VIDEO_DRIVER=wayland "wayland not available" diye patlar,
+  # X11'e düşünce de xwayland-satellite'ta relative mouse çalışmaz.
+  programs.nix-ld.libraries = with pkgs; [
+    libglvnd
+    wayland
+    libdecor
+    libxkbcommon
+    egl-wayland
+  ];
   programs.dconf.enable = true;
 
   # Otomatik offload: masaüstü Intel'de kalır, Steam ve altındaki

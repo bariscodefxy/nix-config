@@ -9,8 +9,8 @@
     cantarell-fonts
     nerd-fonts.jetbrains-mono
     material-symbols
-    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-    inputs.apple-fonts.packages.${pkgs.system}.sf-mono
+    inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro
+    inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-mono
   ];
 
   fonts.fontconfig = {

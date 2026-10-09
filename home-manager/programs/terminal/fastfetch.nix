@@ -26,7 +26,7 @@
             key = " ╭─ ";
           }
         ]
-        ++ lib.optionals pkgs.stdenv.isDarwin [
+        ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
           {
             type = "os";
             key = " ├─  ";
@@ -40,7 +40,7 @@
             key = " ├─  ";
           }
         ]
-        ++ lib.optionals pkgs.stdenv.isLinux [
+        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
           {
             type = "os";
             key = " ├─ ";

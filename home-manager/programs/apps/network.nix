@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     qbittorrent
     remmina
-    protonvpn-gui
+    proton-vpn
     wireguard-tools
   ];
 }

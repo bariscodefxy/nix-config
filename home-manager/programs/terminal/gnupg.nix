@@ -11,6 +11,6 @@
     enableSshSupport = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
   };
 }

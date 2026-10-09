@@ -9,7 +9,7 @@
 { inputs, pkgs, ... }:
 {
   security.wrappers.darling = {
-    source = "${inputs.darling-nix.packages.${pkgs.system}.darling}/bin/darling";
+    source = "${inputs.darling-nix.packages.${pkgs.stdenv.hostPlatform.system}.darling}/bin/darling";
     owner = "root";
     group = "root";
     setuid = true;

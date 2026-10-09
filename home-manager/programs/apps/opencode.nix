@@ -33,6 +33,15 @@
         "~/GDrive/**"
       ];
     };
+    mcp = {
+      servers = {
+        reactbits = {
+          type = "local";
+          command = [ "npx" "-y" "reactbits-dev-mcp-server" ];
+          enabled = true;
+        };
+      };
+    };
   };
 
   home.file.".ignore".text = "GDrive/\n";

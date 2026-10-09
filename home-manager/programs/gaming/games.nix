@@ -7,7 +7,7 @@
 }:
 {
   home.packages = with pkgs; [
-    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
-    inputs.macoblox.packages.${pkgs.system}.macoblox
+    inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher
+    inputs.macoblox.packages.${pkgs.stdenv.hostPlatform.system}.macoblox
   ];
 }
