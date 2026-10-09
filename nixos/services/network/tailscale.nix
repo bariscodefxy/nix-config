@@ -6,6 +6,5 @@
     openFirewall = true;
   };
 
-  # Tailnet'ten gelen trafiğe güven (firewall aktif).
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 }

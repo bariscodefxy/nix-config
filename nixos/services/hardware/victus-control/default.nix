@@ -6,9 +6,9 @@
 
   services.victus-control.enable = true;
 
-  # EC fan eğrisi bozuk kartlarda (örn. 8C99) AUTO 0 RPM'de takılı kalıyor.
-  # Bu servis sıcaklığa göre MANUAL pwm eğrisi uygular; AUTO/MAX'a geçmez.
-  # Uygulamada mod AUTO'da bırakılmalı; MAX seçilirse servis geri çekilir.
+  # On boards with broken EC fan curves (e.g. 8C99), AUTO gets stuck at 0 RPM.
+  # This service applies a MANUAL pwm curve based on temperature; does not switch to AUTO/MAX.
+  # The UI mode should remain AUTO; if MAX is chosen, the service backs off.
   services.victus-control.fanCurve = {
     enable = true;
     highTemp = 80;

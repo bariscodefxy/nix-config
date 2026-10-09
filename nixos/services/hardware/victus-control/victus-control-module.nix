@@ -21,13 +21,13 @@ let
     SETTLE=${toString fcfg.settleTime}
     USE_GPU=${if fcfg.useGpu then "1" else "0"}
 
-    # En yüksek numaralı hwmon dizini (backend ile aynı seçim).
+    # Highest numbered hwmon directory (same choice as backend).
     find_hwmon() {
       find "$HWMON_BASE" -mindepth 1 -maxdepth 1 -type d -name 'hwmon*' 2>/dev/null \
         | sort -V | tail -n 1
     }
 
-    # CPU sıcaklığı: coretemp sensörlerinin maksimumu (miliderece -> derece).
+    # CPU temperature: maximum of coretemp sensors (millidegrees -> degrees).
     cpu_temp() {
       local max=0 t f
       for f in /sys/class/hwmon/hwmon*/temp*_input; do
@@ -64,7 +64,7 @@ let
       echo "$last_mode $last_pwm $changed_at $ema" > "$STATE_FILE" 2>/dev/null || true
     }
 
-    # Uygulanan soğutma seviyesi: AUTO=0, MANUAL=pwm(1-255), MAX=300.
+    # Applied cooling level: AUTO=0, MANUAL=pwm(1-255), MAX=300.
     applied_level() {
       if [ "$last_mode" = "0" ]; then echo 300
       elif [ "$last_mode" = "1" ]; then echo "$last_pwm"
@@ -95,7 +95,7 @@ let
       gpu=$(gpu_temp)
       temp=$cpu
       [ "$gpu" -gt "$temp" ] && temp=$gpu
-      # Sensör okunamazsa mevcut durumu koru (sıcakken fanı kısmak yok).
+      # If sensor cannot be read, preserve current state (never throttle down fan when hot).
       if [ "$temp" -le 0 ]; then
         sleep "$INTERVAL"
         continue
@@ -106,9 +106,9 @@ let
       [ -z "$cur_pwm1" ] && cur_pwm1="0"
       now=$(date +%s)
 
-      # Sahiplik: enable bizim son yazdığımızdan farklıysa kullanıcı veya
-      # backend değiştirmiş demektir; harici MAX'a saygı duy (geri çekil),
-      # diğer durumlarda yönetimi devral.
+      # Ownership: if enable differs from what we last wrote, user or
+      # backend changed it; respect external MAX (back off),
+      # take over management in other cases.
       if [ "$cur_enable" != "$last_mode" ]; then
         last_mode=$cur_enable
         last_pwm=$cur_pwm1
@@ -120,9 +120,9 @@ let
         fi
       fi
 
-      # Sinyal yumuşatma: paket sıcaklığı ani yükte saniyeler içinde 20-30C
-      # sıçrar; ham değere göre karar vermek fanı sürekli MAX'e vurur.
-      # Üstel hareketli ortalama ile yumuşat, kritik eşikte ham değere bak.
+      # Signal smoothing: package temperature spikes 20-30C within seconds under bursty load;
+      # deciding on raw value constantly hits MAX.
+      # Smooth with exponential moving average, check raw value at critical threshold.
       if [ "$ema" -le 0 ]; then
         ema=$temp
       else
@@ -131,8 +131,8 @@ let
       stemp=$ema
       [ "$temp" -ge "${toString fcfg.criticalTemp}" ] && stemp=$temp
 
-      # Hedef her zaman MANUAL: LOW altı minPwm, HIGH üstü 255,
-      # arası doğrusal eğri. AUTO/MAX'a geçilmez.
+      # Target is always MANUAL: minPwm below LOW, 255 above HIGH,
+      # linear curve in between. Never switch to AUTO/MAX.
       if [ "$stemp" -ge "$HIGH" ]; then
         d_pwm=255
       elif [ "$stemp" -le "$LOW" ]; then
@@ -148,9 +148,9 @@ let
 
       apply=0
       if [ "$d_level" -gt "$a_level" ]; then
-        apply=1 # soğutmayı artırmak her zaman serbest
+        apply=1 # increasing cooling is always allowed
       elif [ "$d_level" -lt "$a_level" ] && [ $((now - changed_at)) -ge "$SETTLE" ]; then
-        apply=1 # kısma yönünde yerleşme süresi dolduysa serbest
+        apply=1 # throttling down is allowed once settle time has elapsed
       fi
 
       if [ "$apply" = "1" ]; then
@@ -247,11 +247,10 @@ in
 
     services.udev.packages = [ pkg ];
 
-    # Upstream'in leds kuralları GROUP=/MODE= kullanıyor ama bunlar sysfs
-    # özniteliklerine işlemez (sadece /dev düğümlerine). Backend tek-bölge
-    # klavyeyi doğrudan yazdığı için brightness/multi_intensity dosyalarının
-    # victus grubuna yazılabilir olması gerekir; hwmon kuralındaki çalışan
-    # RUN+ kalıbının aynısı burada da kullanılır.
+    # Upstream leds rules use GROUP=/MODE=, but those do not apply to sysfs attributes
+    # (only to /dev nodes). Because the backend writes single-zone keyboard
+    # brightness/multi_intensity directly, they must be writable by victus group;
+    # reuse the working RUN+ pattern from the hwmon rule.
     services.udev.extraRules = ''
       SUBSYSTEM=="leds", KERNELS=="hp::kbd_backlight", ACTION=="add|change", RUN+="/bin/sh -c 'chgrp victus /sys%p/brightness /sys%p/multi_intensity 2>/dev/null; chmod g+w /sys%p/brightness /sys%p/multi_intensity 2>/dev/null'"
       SUBSYSTEM=="hwmon", KERNELS=="hp-wmi", ACTION=="add|change", RUN+="/bin/sh -c 'chgrp victus /sys%p/pwm1 /sys%p/pwm2 2>/dev/null; chmod g+w /sys%p/pwm1 /sys%p/pwm2 2>/dev/null'"
@@ -294,10 +293,9 @@ in
         "victus-backend.service"
         "systemd-udev-settle.service"
       ];
-      # NOT: RuntimeDirectory=victus-control buraya KONMAZ. Bu dizin
-      # victus-backend'e aittir ve soketi içinde yaşar; ikinci bir servis
-      # aynı RuntimeDirectory'yi alırsa systemd stop sırasında dizini silip
-      # backend soketini yok eder ("No Server connection").
+      # NOTE: Do NOT set RuntimeDirectory=victus-control here. This directory belongs to
+      # victus-backend and holds its socket; if a second service claims the same RuntimeDirectory,
+      # systemd removes it on stop, destroying the backend socket ("No Server connection").
       serviceConfig = {
         Type = "simple";
         ExecStart = "${fanCurveScript}";

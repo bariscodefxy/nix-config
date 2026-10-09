@@ -14,7 +14,6 @@
         configFile = pkgs.writeText "config.inc.php" ''
           <?php
           //$cfg['Servers'][1]['auth_type'] = 'http';
-          /* Server parameters */
           $cfg['Servers'][1]['host'] = 'localhost';
           $cfg['Servers'][1]['compress'] = false;
           $cfg['Servers'][1]['AllowNoPassword'] = false;

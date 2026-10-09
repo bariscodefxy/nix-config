@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
     install -Dm755 bin/opencode $out/bin/opencode
-    # Upstream install betiği de bu takma adı kurar (v1 ile yan yana kullanım için).
+    # Upstream install script also creates this alias (for side-by-side use with v1).
     ln -s opencode $out/bin/opencode2
     runHook postInstall
   '';

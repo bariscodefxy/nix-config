@@ -5,8 +5,8 @@
   meson,
   ninja,
   pkg-config,
-  gtk4,
   wrapGAppsHook4,
+  gtk4,
   systemd,
   makeWrapper,
   coreutils,
@@ -20,13 +20,13 @@
 
 stdenv.mkDerivation rec {
   pname = "victus-control";
-  version = "1.2.0";
+  version = "1.2.1-unstable-2026-03-31";
 
   src = fetchFromGitHub {
     owner = "Batuhan4";
     repo = "victus-control";
-    rev = "5aadf66ee88f5e42e8f847154dd491d503d22c01";
-    sha256 = "sha256-dggZwK0ngH8l7QlvgpsOFxZ09AUp2OSZIC4+lptG9KQ=";
+    rev = "87a03046f49fcbfdfc1fc910b86556e43187c3a4";
+    hash = "sha256-5iFh+5j+mSkg19p736p1k1u0kQy+7871tM+0vLq7Npk=";
   };
 
   nativeBuildInputs = [
@@ -43,8 +43,8 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = ''
-    # Meson: mutlak '/etc/...' ve '/usr/...' kurulum dizinlerini prefix'e göreli
-    # hale getir, böylece $out altına kurulurlar.
+    # Meson: make absolute '/etc/...' and '/usr/...' install paths relative
+    # to prefix so they install under $out.
     substituteInPlace backend/meson.build \
       --replace-quiet "'/etc/systemd/system'" "'etc/systemd/system'" \
       --replace-quiet "'/usr/lib/victus-control'" "'lib/victus-control'" \
@@ -54,8 +54,8 @@ stdenv.mkDerivation rec {
       --replace-quiet "'/usr/lib/systemd/user'" "'lib/systemd/user'" \
       --replace-quiet "'/etc/udev/rules.d'" "'etc/udev/rules.d'"
 
-    # Backend C++: yardımcı betikler ve sudo için sabit /usr/bin yollarını düzelt.
-    # Yardımcılar paketin kendi $out/bin dizinine, sudo NixOS wrapper'ına bağlanır.
+    # Backend C++: fix hardcoded /usr/bin paths for helper scripts and sudo.
+    # Helpers point to $out/bin, sudo points to NixOS wrapper.
     substituteInPlace backend/src/fan.cpp \
       --replace-quiet '"/usr/bin/sudo"' '"/run/wrappers/bin/sudo"' \
       --replace-quiet '"/usr/bin/set-fan-mode.sh"' '"'$out'/bin/set-fan-mode.sh"' \
@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
       --replace-quiet '"/usr/bin/set-rgb-zone.sh"' '"'$out'/bin/set-rgb-zone.sh"' \
       --replace-quiet '"/usr/bin/set-rgb-zones.sh"' '"'$out'/bin/set-rgb-zones.sh"'
 
-    # Servis ve desktop dosyalarındaki sabit ExecStart yollarını düzelt.
+    # Fix hardcoded ExecStart paths in service and desktop files.
     substituteInPlace backend/victus-backend.service \
       --replace-quiet 'ExecStart=/usr/bin/victus-backend' 'ExecStart='$out'/bin/victus-backend'
     substituteInPlace backend/victus-healthcheck.service \
@@ -77,8 +77,8 @@ stdenv.mkDerivation rec {
   '';
 
   postInstall = ''
-    # Meson yardımcı betikleri kurmuyor (upstream install.sh manuel kopyalıyor),
-    # bu yüzden 4 betiği $out/bin altına kendimiz kuruyoruz.
+    # Meson does not install helper scripts (upstream install.sh copies them manually),
+    # so install all 4 scripts to $out/bin ourselves.
     install -D -m 0755 ${src}/backend/src/set-fan-mode.sh $out/bin/set-fan-mode.sh
     install -D -m 0755 ${src}/backend/src/set-fan-speed.sh $out/bin/set-fan-speed.sh
     install -D -m 0755 ${src}/backend/src/set-rgb-zone.sh $out/bin/set-rgb-zone.sh
@@ -86,18 +86,17 @@ stdenv.mkDerivation rec {
 
     patchShebangs $out/bin $out/lib/victus-control
 
-    # NixOS services.udev.packages kuralları $out/lib/udev/rules.d altında arar,
-    # meson ise etc altına kuruyor. Her ikisinde de bulunsun.
+    # NixOS services.udev.packages searches under $out/lib/udev/rules.d,
+    # but meson installs to etc. Keep rules in both places.
     mkdir -p $out/lib/udev/rules.d
     cp $out/etc/udev/rules.d/*.rules $out/lib/udev/rules.d/
 
-    # Backend nvidia-smi'yi `popen("timeout 3 nvidia-smi ...")` ile PATH üzerinden
-    # çağırıyor. Nix store'daki coreutils (timeout) + sürücüden gelen nvidia-smi
-    # için impure /run yolları gerekli.
+    # Backend calls nvidia-smi via popen("timeout 3 nvidia-smi ...") on PATH.
+    # Nix store coreutils (timeout) + nvidia-smi from driver require impure /run paths.
     wrapProgram $out/bin/victus-backend \
       --prefix PATH : "${lib.makeBinPath [ coreutils kmod findutils gnugrep gnused gawk bash ]}:$out/bin:/run/opengl-driver/bin:/run/current-system/sw/bin:/run/wrappers/bin"
 
-    # Healthcheck dkms/modprobe/lsmod/find gibi araçları PATH'ten çağırıyor.
+    # Healthcheck calls dkms/modprobe/lsmod/find from PATH.
     wrapProgram $out/lib/victus-control/victus-healthcheck.sh \
       --prefix PATH : "${lib.makeBinPath [ coreutils kmod findutils gnugrep gnused gawk bash ]}:/run/current-system/sw/bin:/run/wrappers/bin"
   '';

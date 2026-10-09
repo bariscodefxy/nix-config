@@ -18,8 +18,6 @@
       }
 
       layout {
-        // gaps_in 5 + gaps_out 10 karşılığı: pencere çevresi 5,
-        // ekran kenarlarına ek 5 strut.
         gaps 5
         struts {
           left 5
@@ -46,23 +44,16 @@
         }
       }
 
-      // CSD gölgelerini kaldır, Niri gölgesi köşe yuvarlamayı takip etsin.
       prefer-no-csd
 
-      // rounding 10 karşılığı.
       window-rule {
         geometry-corner-radius 10
         clip-to-geometry true
       }
 
-      // Quickshell: login'de otomatik başlat.
       spawn-at-startup "qs"
-
-      // Polkit yetkilendirme pencereleri için.
       spawn-at-startup "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
 
-      // Cam efekti: hafif frost. Varsayılan (passes 3, offset 3) sütümsü
-      // beyaz yapıyor; düşük değer = daha berrak cam + daha ucuz GPU.
       blur {
         passes 2
         offset 1.5
@@ -72,19 +63,14 @@
         Mod+B { spawn "chromium"; }
         Mod+E { spawn "${pkgs.thunar}/bin/thunar"; }
         Mod+Q { spawn "${pkgs.alacritty}/bin/alacritty"; }
-        // Spotlight: open the shell launcher (macOS Cmd+Space behavior).
         Mod+Space { spawn-sh "quickshell ipc call launcher spotlight"; }
         Mod+C repeat=false { close-window; }
-        // Hyprland'deki gibi anında çıkış (onay penceresiz).
         Mod+M { quit skip-confirmation=true; }
         Mod+F { maximize-column; }
         Mod+Shift+F { fullscreen-window; }
         Mod+V { toggle-window-floating; }
-        // Hyprland pseudotile/togglesplit'in Niri'de birebiri yok;
-        // en yakın kolon gruplama eylemleri.
         Mod+P { consume-window-into-column; }
         Mod+J { expel-window-from-column; }
-        // Ekran kilidi (hyprlock yerine swaylock).
         Mod+L { spawn "swaylock"; }
 
         Mod+Left { focus-column-left; }

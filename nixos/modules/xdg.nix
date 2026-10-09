@@ -10,7 +10,7 @@
           "gnome"
           "gtk"
         ];
-        # gnome portali nautilus ister, bizde thunar var: dosya seçici gtk'dan.
+        # GNOME portal expects Nautilus, but we use Thunar: FileChooser comes from GTK.
         "org.freedesktop.impl.portal.FileChooser" = "gtk";
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
         "org.freedesktop.impl.portal.Screenshot" = "gnome";

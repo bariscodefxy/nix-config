@@ -12,7 +12,7 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
-    # NOT: GDK_BACKEND buraya konmaz, portal-gnome screencast'i bozar.
+    # NOTE: Do NOT set GDK_BACKEND here; it breaks portal-gnome screencasting.
     SDL_VIDEODRIVER = "wayland,x11";
     CLUTTER_BACKEND = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = "1";

@@ -18,10 +18,10 @@
     pkgs.kdePackages.breeze-icons
   ];
 
-  # gtk modülü gtk.css üretmiyor (gtk3: sadece extraCss doluyken,
-  # bu sürümde gtk4 için de tema importu yok). Eskiden elle yazılmış
-  # koyu renkli gtk.css override'ları (örn. Gradience kalıntısı) temayı
-  # eziyordu; bu dosyaları boş olarak sahiplen ki geri gelemesinler.
+  # The gtk module does not generate gtk.css (gtk3: only when extraCss is set,
+  # and this version lacks theme import for gtk4). Previously manually written
+  # dark gtk.css overrides (e.g. leftover Gradience) overwrote the theme;
+  # claim these files as empty so they cannot come back.
   xdg.configFile = {
     "gtk-3.0/gtk.css" = {
       text = "";

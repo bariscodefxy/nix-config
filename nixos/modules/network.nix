@@ -15,7 +15,7 @@
 
   networking.firewall = {
     enable = true;
-    checkReversePath = "loose"; # tailscale modülü bunu ister (false ile çakışır)
+    checkReversePath = "loose";
     allowedTCPPorts = [
       80
       443

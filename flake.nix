@@ -73,7 +73,6 @@
     {
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-      # MacOBlox dev shell (local checkout; flake lives in that repo).
       devShells.x86_64-linux.macoblox = inputs.macoblox.devShells.x86_64-linux.default;
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
