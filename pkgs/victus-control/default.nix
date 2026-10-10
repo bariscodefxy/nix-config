@@ -20,13 +20,13 @@
 
 stdenv.mkDerivation rec {
   pname = "victus-control";
-  version = "1.2.1-unstable-2026-03-31";
+  version = "1.2.0";
 
   src = fetchFromGitHub {
     owner = "Batuhan4";
     repo = "victus-control";
-    rev = "87a03046f49fcbfdfc1fc910b86556e43187c3a4";
-    hash = "sha256-5iFh+5j+mSkg19p736p1k1u0kQy+7871tM+0vLq7Npk=";
+    rev = "5aadf66ee88f5e42e8f847154dd491d503d22c01";
+    hash = "sha256-dggZwK0ngH8l7QlvgpsOFxZ09AUp2OSZIC4+lptG9KQ=";
   };
 
   nativeBuildInputs = [
