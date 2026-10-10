@@ -78,40 +78,51 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
-      nixosConfigurations = {
-        victus = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [
-            ./nixos/configuration.nix
-            disko.nixosModules.disko
-            {
-              hardware.hp-wmi-control.enable = true;
-            }
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "baris@victus" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config = {
-              allowUnfree = true;
-              allowUnfreePredicate = (_: true);
+      nixosConfigurations =
+        let
+          mkHost = desktop: nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs outputs desktop;
             };
+            modules = [
+              ./nixos/configuration.nix
+              disko.nixosModules.disko
+              {
+                hardware.hp-wmi-control.enable = true;
+              }
+            ];
           };
-          extraSpecialArgs = {
-            inherit
-              inputs
-              outputs
-              ;
-          };
-          modules = [
-            ./home-manager/home.nix
-          ];
+        in
+        {
+          victus = mkHost "niri";
+          victus-plasma = mkHost "plasma";
         };
-      };
+
+      homeConfigurations =
+        let
+          mkHome = desktop: home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config = {
+                allowUnfree = true;
+                allowUnfreePredicate = (_: true);
+              };
+            };
+            extraSpecialArgs = {
+              inherit
+                inputs
+                outputs
+                desktop
+                ;
+            };
+            modules = [
+              ./home-manager/home.nix
+            ];
+          };
+        in
+        {
+          "baris@victus" = mkHome "niri";
+          "baris@victus-plasma" = mkHome "plasma";
+        };
     };
 }

@@ -3,6 +3,6 @@
   imports = [
     ./flatpak.nix
     ./pipewire.nix
-    ./greetd.nix
+    ./sddm.nix
   ];
 }

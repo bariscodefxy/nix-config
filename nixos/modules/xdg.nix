@@ -1,16 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, lib, desktop, ... }:
 {
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
 
-    config = {
+    config = lib.mkIf (desktop == "niri") {
       common = {
         default = [
           "gnome"
           "gtk"
         ];
-        # GNOME portal expects Nautilus, but we use Thunar: FileChooser comes from GTK.
         "org.freedesktop.impl.portal.FileChooser" = "gtk";
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
         "org.freedesktop.impl.portal.Screenshot" = "gnome";
@@ -19,7 +18,7 @@
       };
     };
 
-    extraPortals = [
+    extraPortals = lib.mkIf (desktop == "niri") [
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];

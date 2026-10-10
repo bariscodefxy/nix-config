@@ -16,6 +16,8 @@
       ll = "ls -l";
       neofetch = "fastfetch";
       push-oag = "git push ; git push github master";
+      switch-niri = "sudo nixos-rebuild switch --flake /home/baris/nix-config#victus && home-manager switch --flake /home/baris/nix-config#baris@victus";
+      switch-plasma = "sudo nixos-rebuild switch --flake /home/baris/nix-config#victus-plasma && home-manager switch --flake /home/baris/nix-config#baris@victus-plasma";
     };
 
     initContent = ''

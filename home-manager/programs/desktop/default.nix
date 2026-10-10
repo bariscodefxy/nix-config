@@ -1,12 +1,17 @@
-{
-  ...
-}:
+{ desktop, ... }:
 {
   imports = [
     ./cursor.nix
-    ./niri.nix
     ./gtk.nix
-    ./quickshell.nix
-    ./session.nix
-  ];
+  ]
+  ++ (
+    if desktop == "plasma" then
+      [ ./plasma.nix ]
+    else
+      [
+        ./niri.nix
+        ./quickshell.nix
+        ./session.nix
+      ]
+  );
 }

@@ -4,7 +4,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./darling.nix
-    ./desktop.nix
+    ./desktop
     ./fonts.nix
     ./garbage.nix
     ./graphics.nix
