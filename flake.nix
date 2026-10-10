@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:FlameFlag/nixcord";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -116,6 +121,7 @@
                 ;
             };
             modules = [
+              inputs.plasma-manager.homeManagerModules.plasma-manager
               ./home-manager/home.nix
             ];
           };
