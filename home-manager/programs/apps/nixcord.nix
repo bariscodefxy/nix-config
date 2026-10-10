@@ -6,7 +6,6 @@
 
   programs.nixcord = {
     enable = true;
-    vesktop.enable = true;
-    discord.silenceNoModClientWarning = true;
+    discord.vencord.enable = true;
   };
 }
