@@ -4,5 +4,6 @@
     wayvnc
     wlr-randr
     zapzap
+    thunderbird
   ];
 }
