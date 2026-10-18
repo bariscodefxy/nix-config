@@ -45,19 +45,20 @@
     darling-nix = {
       url = "github:bariscodefxy/darling-nix";
     };
-    # Private repo, fetched over SSH for the same reason as mdldec below.
-    # This used to be a `path:` input pointing at the local checkout, which
-    # made the flake unusable anywhere else: the lock recorded the absolute
-    # path /home/baris/MacOBlox, so a checkout on CI could not resolve it.
+    # Private repo, fetched over SSH because HTTPS cannot read it without
+    # credentials. This used to be a `path:` input pointing at the local
+    # checkout, which made the flake unusable anywhere else: the lock recorded
+    # the absolute path /home/baris/MacOBlox, so a checkout on CI could not
+    # resolve it.
     macoblox = {
       url = "git+ssh://git@github.com/bariscodefxy/MacOBlox.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Private repo, fetched over SSH. `git+ssh://` rather than the `github:`
-    # shorthand: Nix strips the user info from the short form and falls back to
-    # HTTPS, which cannot authenticate for a private repo.
+    # Public repo, so the `github:` shorthand is enough. This previously used
+    # `git+ssh://` on the assumption that it was private; it is not, and
+    # anonymous HTTPS reads it fine.
     mdldec = {
-      url = "git+ssh://git@github.com/bariscodefxy/mdldec.git";
+      url = "github:bariscodefxy/mdldec";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # ArtCraft Crafting Apps. `follows` keeps it on our nixpkgs so the

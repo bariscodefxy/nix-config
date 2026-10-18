@@ -336,15 +336,15 @@
       "locked": {
         "lastModified": 1792028044,
         "narHash": "sha256-oDOxhL4mb1qGnYKXcndlZ+sHpxqfQbGmXZNhRN7OP5g=",
-        "ref": "refs/heads/main",
+        "owner": "bariscodefxy",
+        "repo": "mdldec",
         "rev": "d9d5ed118e332ccb2e9be7de7e3ba00810b3be87",
-        "revCount": 11,
-        "type": "git",
-        "url": "ssh://git@github.com/bariscodefxy/mdldec.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/bariscodefxy/mdldec.git"
+        "owner": "bariscodefxy",
+        "repo": "mdldec",
+        "type": "github"
       }
     },
     "nix-craftapps": {
