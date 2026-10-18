@@ -314,14 +314,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1791494771,
-        "narHash": "sha256-XeV3HZloZWV3kBlv47ZWvFbW3t7k3LOPBZpArYEDrM4=",
-        "path": "/home/baris/MacOBlox",
-        "type": "path"
+        "lastModified": 1791494948,
+        "narHash": "sha256-A7TBlEE0/8JbnFUKHzdKv2h1HBTB2BZYykamhIJuwoY=",
+        "ref": "refs/heads/main",
+        "rev": "788946ffb753c6ef0f7108d645055e8b40b7de55",
+        "revCount": 184,
+        "type": "git",
+        "url": "ssh://git@github.com/bariscodefxy/MacOBlox.git"
       },
       "original": {
-        "path": "/home/baris/MacOBlox",
-        "type": "path"
+        "type": "git",
+        "url": "ssh://git@github.com/bariscodefxy/MacOBlox.git"
       }
     },
     "mdldec": {

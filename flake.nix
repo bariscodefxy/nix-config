@@ -45,8 +45,12 @@
     darling-nix = {
       url = "github:bariscodefxy/darling-nix";
     };
+    # Private repo, fetched over SSH for the same reason as mdldec below.
+    # This used to be a `path:` input pointing at the local checkout, which
+    # made the flake unusable anywhere else: the lock recorded the absolute
+    # path /home/baris/MacOBlox, so a checkout on CI could not resolve it.
     macoblox = {
-      url = "path:/home/baris/MacOBlox";
+      url = "git+ssh://git@github.com/bariscodefxy/MacOBlox.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Private repo, fetched over SSH. `git+ssh://` rather than the `github:`
