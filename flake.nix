@@ -49,80 +49,88 @@
       url = "path:/home/baris/MacOBlox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Private repo, fetched over SSH. `git+ssh://` rather than the `github:`
+    # shorthand: Nix strips the user info from the short form and falls back to
+    # HTTPS, which cannot authenticate for a private repo.
+    mdldec = {
+      url = "git+ssh://git@github.com/bariscodefxy/mdldec.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # ArtCraft Crafting Apps. `follows` keeps it on our nixpkgs so the
+    # packages land in the same store paths as everything else.
+    nix-craftapps = {
+      url = "github:olafkfreund/nix-craftapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      disko,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      systems = [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-      devShells.x86_64-linux.macoblox = inputs.macoblox.devShells.x86_64-linux.default;
-      overlays = import ./overlays { inherit inputs; };
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    disko,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    devShells.x86_64-linux.macoblox = inputs.macoblox.devShells.x86_64-linux.default;
+    overlays = import ./overlays {inherit inputs;};
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
 
-      nixosConfigurations =
-        let
-          mkHost = desktop: nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs outputs desktop;
-            };
-            modules = [
-              ./nixos/configuration.nix
-              disko.nixosModules.disko
-              {
-                hardware.hp-wmi-control.enable = true;
-              }
-            ];
+    nixosConfigurations = let
+      mkHost = desktop:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs desktop;
           };
-        in
-        {
-          victus = mkHost "niri";
-          victus-plasma = mkHost "plasma";
+          modules = [
+            ./nixos/configuration.nix
+            disko.nixosModules.disko
+            {
+              hardware.hp-wmi-control.enable = true;
+            }
+          ];
         };
-
-      homeConfigurations =
-        let
-          mkHome = desktop: home-manager.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config = {
-                allowUnfree = true;
-                allowUnfreePredicate = (_: true);
-              };
-            };
-            extraSpecialArgs = {
-              inherit
-                inputs
-                outputs
-                desktop
-                ;
-            };
-            modules = [
-              ./home-manager/home.nix
-            ];
-          };
-        in
-        {
-          "baris@victus" = mkHome "niri";
-          "baris@victus-plasma" = mkHome "plasma";
-        };
+    in {
+      victus = mkHost "niri";
+      victus-plasma = mkHost "plasma";
     };
+
+    homeConfigurations = let
+      mkHome = desktop:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config = {
+              allowUnfree = true;
+              allowUnfreePredicate = _: true;
+            };
+          };
+          extraSpecialArgs = {
+            inherit
+              inputs
+              outputs
+              desktop
+              ;
+          };
+          modules = [
+            ./home-manager/home.nix
+          ];
+        };
+    in {
+      "baris@victus" = mkHome "niri";
+      "baris@victus-plasma" = mkHome "plasma";
+    };
+  };
 }
