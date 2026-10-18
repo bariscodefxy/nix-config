@@ -39,21 +39,6 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # No `follows`: the prebuilt Darling in its cache was built against
-    # its locked nixpkgs; following ours would change store paths and
-    # force a local source build.
-    darling-nix = {
-      url = "github:bariscodefxy/darling-nix";
-    };
-    # Private repo, fetched over SSH because HTTPS cannot read it without
-    # credentials. This used to be a `path:` input pointing at the local
-    # checkout, which made the flake unusable anywhere else: the lock recorded
-    # the absolute path /home/baris/MacOBlox, so a checkout on CI could not
-    # resolve it.
-    macoblox = {
-      url = "git+ssh://git@github.com/bariscodefxy/MacOBlox.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Public repo, so the `github:` shorthand is enough. This previously used
     # `git+ssh://` on the assumption that it was private; it is not, and
     # anonymous HTTPS reads it fine.
@@ -88,7 +73,7 @@
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-    devShells.x86_64-linux.macoblox = inputs.macoblox.devShells.x86_64-linux.default;
+
     overlays = import ./overlays {inherit inputs;};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;

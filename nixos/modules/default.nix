@@ -3,7 +3,6 @@
     ./bluetooth.nix
     ./boot.nix
     ./craftapps.nix
-    ./darling.nix
     ./desktop
     ./fonts.nix
     ./garbage.nix
