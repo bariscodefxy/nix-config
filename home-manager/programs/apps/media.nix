@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     playerctl
     obs-studio
@@ -8,5 +7,8 @@
     audacity
     lsp-plugins
     pear-desktop
+    # 3D creation suite. Kept here with the other creative tools rather than
+    # in nixos/modules/system-packages.nix, which holds CLI/dev tooling.
+    blender
   ];
 }

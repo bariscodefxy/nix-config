@@ -5,5 +5,6 @@
     wlr-randr
     zapzap
     thunderbird
+    telegram-desktop
   ];
 }
