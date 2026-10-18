@@ -6,6 +6,7 @@
     ./database
     ./hardware
     ./system
+    ./wayvnc.nix
   ];
 
   specialisation = {
