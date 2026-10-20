@@ -53,11 +53,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Minecraft Bedrock (the Windows build) on Linux through Wine, with
-    # real Xbox sign-in. Upstream ships a flake, and only defines
-    # x86_64-linux. `follows` keeps it on our nixpkgs so steam-run and the
-    # Qt libraries resolve to the same store paths as the rest of the system.
+    # real Xbox sign-in. Public repo with its own flake.
+    #
+    # Pinned to the v2.2.9 tag, deliberately not to main. main sets
+    # XODUS_REV = 64d39eb87a56-p7 but keeps XODUS_ARCHIVE_SHA256 at the p5
+    # archive's hash, and p7 was never published -- the download URL is a
+    # 404, so the launcher dies with "The Xodus downloader ... has not been
+    # published yet". v2.2.9 pins p5, whose published archive matches that
+    # hash byte for byte. Move back to main once the p7 asset exists.
     bedrock-on-linux = {
-      url = "github:Wyze3306/BedrockOnLinux";
+      url = "github:Wyze3306/BedrockOnLinux/v2.2.9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
