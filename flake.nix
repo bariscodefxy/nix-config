@@ -52,6 +52,14 @@
       url = "github:olafkfreund/nix-craftapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Minecraft Bedrock (the Windows build) on Linux through Wine, with
+    # real Xbox sign-in. Upstream ships a flake, and only defines
+    # x86_64-linux. `follows` keeps it on our nixpkgs so steam-run and the
+    # Qt libraries resolve to the same store paths as the rest of the system.
+    bedrock-on-linux = {
+      url = "github:Wyze3306/BedrockOnLinux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
